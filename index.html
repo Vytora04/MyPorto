@@ -1,0 +1,758 @@
+<html class="light" lang="en" style="scroll-behavior: smooth;"><head></head><body class="bg-background text-on-background min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container"><nav class="fixed top-0 left-0 w-full z-[100] bg-surface border-b border-primary px-16 py-6 flex justify-between items-center">
+<div class="text-2xl font-black text-primary uppercase tracking-tighter">
+    FAHIMSYACH LOKANTA
+  </div>
+<div class="flex gap-8 items-center">
+<a class="font-label-caps text-primary px-3 py-2 hover:bg-primary hover:text-on-primary transition-none" href="#featured-experience">EXPERIENCE</a>
+<a class="font-label-caps text-primary px-3 py-2 hover:bg-primary hover:text-on-primary transition-none" href="#capabilities">CAPABILITIES</a>
+<a class="font-label-caps text-primary px-3 py-2 hover:bg-primary hover:text-on-primary transition-none" href="#selected-works">WORKS</a>
+<a class="font-label-caps text-primary px-3 py-2 hover:bg-primary hover:text-on-primary transition-none" href="#contact">CONTACT</a>
+</div>
+</nav>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>FAHIM - Portfolio</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800;900&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-fixed": "#e2e2e2",
+                    "on-background": "#1b1b1b",
+                    "on-secondary-fixed": "#171d12",
+                    "on-error": "#ffffff",
+                    "surface-container-low": "#f3f3f3",
+                    "surface-bright": "#f9f9f9",
+                    "error-container": "#ffdad6",
+                    "on-secondary-fixed-variant": "#42493b",
+                    "tertiary": "#000000",
+                    "surface": "#f9f9f9",
+                    "primary": "#000000",
+                    "surface-dim": "#dadada",
+                    "surface-container-lowest": "#ffffff",
+                    "tertiary-fixed-dim": "#c6c6c6",
+                    "on-tertiary": "#ffffff",
+                    "tertiary-container": "#1b1b1b",
+                    "secondary-container": "#dbe2cf",
+                    "on-primary-fixed": "#1b1b1b",
+                    "surface-container": "#eeeeee",
+                    "on-tertiary-container": "#848484",
+                    "surface-tint": "#5e5e5e",
+                    "on-tertiary-fixed": "#1b1b1b",
+                    "secondary-fixed": "#dee5d2",
+                    "secondary": "#5a6151",
+                    "primary-fixed-dim": "#c6c6c6",
+                    "on-surface": "#1b1b1b",
+                    "tertiary-fixed": "#e2e2e2",
+                    "surface-variant": "#e2e2e2",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#848484",
+                    "primary-container": "#1b1b1b",
+                    "on-surface-variant": "#4c4546",
+                    "on-primary-fixed-variant": "#474747",
+                    "on-primary": "#ffffff",
+                    "on-error-container": "#93000a",
+                    "secondary-fixed-dim": "#c2c9b6",
+                    "error": "#ba1a1a",
+                    "surface-container-high": "#e8e8e8",
+                    "on-tertiary-fixed-variant": "#474747",
+                    "inverse-primary": "#c6c6c6",
+                    "background": "#f9f9f9",
+                    "outline": "#7e7576",
+                    "surface-container-highest": "#e2e2e2",
+                    "inverse-on-surface": "#f1f1f1",
+                    "inverse-surface": "#303030",
+                    "on-secondary-container": "#5e6556",
+                    "outline-variant": "#cfc4c5",
+                    "academic-sage": "#A3B18A"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "unit": "8px",
+                    "index-item-padding": "24px",
+                    "gutter": "32px",
+                    "container-padding": "64px",
+                    "section-gap": "160px"
+            },
+            "fontFamily": {
+                    "headline-lg": [
+                            "Inter"
+                    ],
+                    "display-xl": [
+                            "Inter"
+                    ],
+                    "label-caps": [
+                            "Inter"
+                    ],
+                    "headline-md": [
+                            "Inter"
+                    ],
+                    "display-2xl": [
+                            "Inter"
+                    ],
+                    "body-lg": [
+                            "Inter"
+                    ],
+                    "body-md": [
+                            "Inter"
+                    ]
+            },
+            "fontSize": {
+                    "headline-lg": [
+                            "48px",
+                            {
+                                    "lineHeight": "1.1",
+                                    "letterSpacing": "-0.02em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-xl": [
+                            "120px",
+                            {
+                                    "lineHeight": "0.95",
+                                    "letterSpacing": "-0.04em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "label-caps": [
+                            "12px",
+                            {
+                                    "lineHeight": "1",
+                                    "letterSpacing": "0.1em",
+                                    "fontWeight": "700"
+                            }
+                    ],
+                    "headline-md": [
+                            "32px",
+                            {
+                                    "lineHeight": "1.2",
+                                    "letterSpacing": "-0.01em",
+                                    "fontWeight": "600"
+                            }
+                    ],
+                    "display-2xl": [
+                            "160px",
+                            {
+                                    "lineHeight": "0.9",
+                                    "letterSpacing": "-0.05em",
+                                    "fontWeight": "800"
+                            }
+                    ],
+                    "body-lg": [
+                            "20px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0em",
+                                    "fontWeight": "400"
+                            }
+                    ],
+                    "body-md": [
+                            "16px",
+                            {
+                                    "lineHeight": "1.6",
+                                    "letterSpacing": "0em",
+                                    "fontWeight": "400"
+                            }
+                    ]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+        .ticker-wrap {
+            width: 100%;
+            overflow: hidden;
+            background-color: #A3B18A;
+            padding: 32px 0;
+            white-space: nowrap;
+        }
+        .ticker {
+            display: inline-block;
+            white-space: nowrap;
+            padding-right: 100%;
+            box-sizing: content-box;
+            animation: ticker 15s linear infinite;
+        }
+        @keyframes ticker {
+            0% { transform: translate3d(0, 0, 0); }
+            100% { transform: translate3d(-50%, 0, 0); }
+        }
+        .hide-scrollbar::-webkit-scrollbar { display: none; }
+        .hide-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+    
+        @keyframes fade-up {
+            from { opacity: 0; transform: translateY(40px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-up { animation: fade-up 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; }
+    
+        .title-hover-effect {
+            color: transparent;
+            -webkit-text-stroke: 1px #000000;
+            transition: all 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .title-hover-effect:hover {
+            color: #A3B18A;
+            -webkit-text-stroke: 1px #A3B18A;
+            text-shadow: 4px 4px 0px #000000;
+        }
+    
+        .timeline-node-container { position: relative; }
+        .timeline-node-container::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            top: 50%;
+            transform: translate(-50%, -50%) scale(0.5);
+            width: 48px;
+            height: 48px;
+            background: #A3B18A;
+            border-radius: 50%;
+            opacity: 0;
+            transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1);
+            pointer-events: none;
+            z-index: -1;
+        }
+        .group:hover .timeline-node-container::before { opacity: 0.2; transform: translate(-50%, -50%) scale(1.5); }
+        .group:hover .timeline-circle { border-color: #A3B18A; background-color: #A3B18A; color: #ffffff !important; }
+
+        /* Carousel Navigation Controls */
+        .carousel-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(255, 255, 255, 0.8);
+            width: 48px;
+            height: 48px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+            z-index: 10;
+            transition: all 0.3s;
+            opacity: 0;
+        }
+        .group\/carousel:hover .carousel-btn { opacity: 1; }
+        .carousel-btn:hover { background: #ffffff; color: #A3B18A; }
+    
+        @keyframes typewriter {
+            from { width: 0; }
+            to { width: 100%; }
+        }
+        .typewriter-effect {
+            display: inline-block;
+            overflow: hidden;
+            white-space: nowrap;
+            border-right: .15em solid transparent;
+            margin: 0 auto;
+            animation: typewriter 2s steps(20, end) forwards;
+            width: 0;
+        }
+    
+        .reveal-text.is-visible {
+            opacity: 1 !important;
+            transform: translateY(0) !important;
+        }
+    </style>
+<script>
+        const carouselState = {};
+        function updateCarousel(id) {
+            const carousel = document.getElementById(id);
+            if (!carousel) return;
+            const state = carouselState[id];
+            const offset = -state.currentIndex * 100;
+            carousel.style.transform = `translateX(${offset}%)`;
+            
+            // Update dots if they exist
+            const dotsContainer = document.getElementById(`${id}-dots`);
+            if (dotsContainer) {
+                Array.from(dotsContainer.children).forEach((dot, index) => {
+                    if (index === state.currentIndex) {
+                        dot.classList.add('bg-white', 'scale-110');
+                        dot.classList.remove('bg-white/50');
+                    } else {
+                        dot.classList.remove('bg-white', 'scale-110');
+                        dot.classList.add('bg-white/50');
+                    }
+                });
+            }
+        }
+
+        function moveCarousel(id, direction) {
+            const carousel = document.getElementById(id);
+            if (!carousel) return;
+            if (!carouselState[id]) {
+                carouselState[id] = { currentIndex: 0, total: carousel.children.length };
+            }
+            let state = carouselState[id];
+            state.currentIndex += direction;
+            
+            if (state.currentIndex < 0) {
+                state.currentIndex = state.total - 1;
+            } else if (state.currentIndex >= state.total) {
+                state.currentIndex = 0;
+            }
+            
+            updateCarousel(id);
+        }
+        
+        function goToSlide(id, index) {
+            if (!carouselState[id]) {
+                const carousel = document.getElementById(id);
+                carouselState[id] = { currentIndex: 0, total: carousel ? carousel.children.length : 0 };
+            }
+            carouselState[id].currentIndex = index;
+            updateCarousel(id);
+        }
+
+        function toggleDropdown(id) {
+            const dropdown = document.getElementById(id);
+            const icon = document.getElementById(id + '-icon');
+            if (dropdown.classList.contains('hidden')) {
+                dropdown.classList.remove('hidden');
+                icon.style.transform = 'rotate(180deg)';
+            } else {
+                dropdown.classList.add('hidden');
+                icon.style.transform = 'rotate(0deg)';
+            }
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const carousels = ['icpc-carousel', 'himti-main-carousel', 'carousel-role-1', 'carousel-role-2', 'carousel-role-3', 'carousel-role-4', 'carousel-role-5'];
+            carousels.forEach(id => {
+                const carousel = document.getElementById(id);
+                if(carousel) {
+                    carouselState[id] = { currentIndex: 0, total: carousel.children.length };
+                    updateCarousel(id);
+                }
+            });
+            
+            // Live clock
+            function updateClock() {
+                const now = new Date();
+                const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+                const clockElements = document.querySelectorAll('.live-clock');
+                clockElements.forEach(el => el.textContent = timeString);
+            }
+            setInterval(updateClock, 1000);
+            updateClock();
+        });
+    
+        document.addEventListener('DOMContentLoaded', () => {
+            const observerOptions = {
+                threshold: 0.1
+            };
+
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('is-visible');
+                        // Add staggered delay if multiple elements visible
+                        const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
+                        entry.target.style.transitionDelay = `${index * 0.1}s`;
+                    }
+                });
+            }, observerOptions);
+
+            document.querySelectorAll('.reveal-text').forEach(el => observer.observe(el));
+        });
+    </script>
+<main class="pt-24">
+<!-- Hero Section -->
+<section class="flex flex-col justify-center items-center px-container-padding relative border-b border-outline-variant min-h-screen relative overflow-hidden">
+<h1 class="font-black leading-none tracking-tighter text-primary text-center typewriter-effect uppercase whitespace-nowrap" style="animation: typewriter 2s steps(17, end) forwards; font-size: clamp(2.5rem, 6.5vw, 8rem);">FAHIMSYACH LOKANTA</h1>
+<p class="font-headline-md text-headline-md text-on-surface-variant mt-unit text-center">Computer Science Student &amp; Developer</p>
+<a class="absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-opacity hover:opacity-70 animate-bounce" href="#the-narrative">
+<span class="font-label-caps text-on-surface-variant group-hover:text-primary transition-colors">SCROLL</span>
+<span class="material-symbols-outlined text-primary">keyboard_arrow_down</span>
+</a></section>
+<!-- 1. THE NARRATIVE -->
+<section class="py-section-gap px-container-padding grid grid-cols-1 md:grid-cols-12 items-center border-b border-outline-variant gap-12" id="the-narrative">
+<div class="col-span-full flex justify-center mb-24">
+<h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">THE NARRATIVE</h2>
+</div>
+<div class="md:col-span-4 md:col-start-2 self-stretch">
+<img alt="Workspace placeholder" class="w-full h-full aspect-[3/4] object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-sXexNFrYfzK20HBQRB-5bwex3B_JNi-OvICDk5ZswPrHsdp_BYCO2cVltGmZSIsKL_GUpUb0jaUfinP_QxPRgoUQ4gRdVBVvzTXwUHD3DM8jit0PVQNdUdFwb7AYM4vsWLWH0UcHR1mBaIATa94pgDEpImY-CZplbU7x1yOrbetN76MrLajPU1crVvM7d4JV_oVZNUjISRPsjE71jMFx2U0E-8nk6E5dUsY8CqlOMOr9d0FNgY5NcpRjCAEdfKYhw4Lp_9nnp4u"/>
+</div>
+<div class="md:col-span-5 md:col-start-7 flex flex-col justify-center">
+<h3 class="font-black text-[clamp(2.5rem,5vw,4rem)] leading-[0.9] tracking-tighter uppercase mb-gutter leading-[1.1] reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">HELLO, I AM <span class="text-academic-sage italic font-bold">FAHIMSYACH LOKANTA</span></h3>
+<p class="font-body-lg text-body-lg text-on-surface-variant mt-6 reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">I am a 6th-semester student at BINUS University based in Tangerang City. Proactive and capable to collaborate in a team, communicate effectively, and solve technical problems. Eager to learn and apply skills in an innovative environment.</p>
+</div>
+</section>
+<!-- Ticker Tape -->
+<section class="border-b border-outline-variant ticker-wrap">
+<div class="ticker font-display-xl text-display-xl text-primary uppercase">
+            GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER | GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER | GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER
+        </div>
+</section>
+<!-- 2. EDUCATION -->
+<section class="py-section-gap px-container-padding border-b border-outline-variant bg-surface">
+<div class="col-span-full flex justify-center mb-24">
+<h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">ACADEMIC HISTORY</h2>
+</div>
+<div class="max-w-screen-xl mx-auto flex flex-col gap-32">
+<!-- Block 1 -->
+<div class="flex flex-col items-start max-w-4xl">
+<h2 class="font-black text-[clamp(2.5rem,5vw,5rem)] leading-none tracking-tighter uppercase text-primary mb-4">Universiti Malaya</h2>
+<h3 class="font-headline-md text-academic-sage uppercase mb-12">Undergraduate Exchange Programme (Inbound) | March 2026 - Present</h3>
+<ul class="space-y-4 font-body-lg text-on-surface-variant text-left list-none pl-0">
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Part of the Long-Term Mobility Programme (Semester Exchange) inbound to Malaysia.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Enrolled in the Faculty of Computer Science and Information Technology.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Focusing on specialized coursework and international academic collaboration.</li>
+</ul>
+</div>
+<!-- Block 2 -->
+<div class="flex flex-col items-start max-w-4xl">
+<h2 class="font-black text-[clamp(2.5rem,5vw,5rem)] leading-none tracking-tighter uppercase text-primary mb-4">BINUS University @Alam Sutera</h2>
+<h3 class="font-headline-md text-academic-sage uppercase mb-12">Computer Science (Global Class) | September 2023 - Present</h3>
+<ul class="space-y-4 font-body-lg text-on-surface-variant text-left list-none pl-0">
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Core academic focus: Algorithm and Programming, Database Systems, and Software Engineering.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Advanced research and practical interests in AI, Machine Learning, and NLP.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Actively engaged in student leadership and spiritual development through HIMTI and KMB.</li>
+</ul>
+</div>
+<!-- Block 3 -->
+<div class="flex flex-col items-start max-w-4xl">
+<h2 class="font-black text-[clamp(2.5rem,5vw,5rem)] leading-none tracking-tighter uppercase text-primary mb-4">PENABUR Gading Serpong Senior High School</h2>
+<h3 class="font-headline-md text-academic-sage uppercase mb-12">Natural Sciences | July 2020 - May 2023</h3>
+<ul class="space-y-4 font-body-lg text-on-surface-variant text-left list-none pl-0">
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Specialized academic focus in Mathematics, Physics, and Informatics.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Developed competitive logic skills through Programming Club and cultural exchange in Japanese Club.</li>
+<li class="flex items-start"><span class="mr-4 text-academic-sage">•</span> Achieved Bebras Computational Thinking Challenge recognition.</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 3. FEATURED EXPERIENCE -->
+<section class="py-section-gap px-container-padding border-b border-outline-variant" id="featured-experience">
+<div class="col-span-full flex justify-center mb-24 w-full">
+<h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">FEATURED EXPERIENCE</h2>
+</div>
+<div class="max-w-screen-xl mx-auto flex flex-col items-center">
+<!-- ICPC Block (Main Carousel) -->
+<div class="mb-32 w-full group/carousel relative">
+<div class="relative w-full aspect-video bg-surface-container overflow-hidden mb-8">
+<div class="flex transition-transform duration-700 ease-in-out h-full" id="icpc-carousel">
+<img alt="ICPC Event 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/>
+<img alt="ICPC Event 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2KAvZKJwGx7ucI73lDaPkzrvndQoCGxYnTxCrMyMbQ45OJ1I_Un2D8Fh8FtS4lGZ2Hc8XJ_3VokoDLqlp0eiq6B26ZK6WvBrifNdRkZ11rbWZrNbCVK-0rASidZTKacDf78FzI4K1q9D4tXSLsYHoPgjPbbKQqdYCLlwJXd2DSDO0AojGtPm814RhXjMy8GrTi-6mTOAs_WqCm5C6pmc9aiWmuG_6KE1AxTHa_POG7CIxa4aY1POODTbZfw52aKQTEvMscEQh6Ow6"/>
+</div>
+<!-- Controls -->
+<button class="carousel-btn left-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('icpc-carousel', -1)">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<button class="carousel-btn right-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('icpc-carousel', 1)">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</button>
+<!-- Pagination Dots -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10" id="icpc-carousel-dots">
+<button class="w-2.5 h-2.5 rounded-full bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('icpc-carousel', 0)"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('icpc-carousel', 1)"></button>
+</div>
+</div>
+<h3 class="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">ICPC (International Collegiate Programming Contest)</h3>
+<div class="max-w-[600px] w-full text-left mr-auto">
+<h4 class="font-bold text-black text-2xl uppercase tracking-tight mb-2 whitespace-nowrap">Registration Staff</h4><p class="font-label-caps text-on-surface-variant mb-6 uppercase">October 2024 - December 2024</p>
+<ul class="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
+<li>Successfully facilitated the registration for 500+ student and faculty teams, ensuring a smooth registration process for the INC 2024 competition.</li>
+<li>Provided direct on-site operational support, ensuring positive experience for Asia Pacific participants.</li>
+<li>Coordinated with team for seamless operations for 100+ participants during ICPC competition.</li>
+</ul>
+</div>
+</div>
+<!-- HIMTI BINUS Block (Main Carousel) -->
+<div class="mb-24 w-full group/carousel relative">
+<div class="relative w-full aspect-video bg-surface-container overflow-hidden mb-8">
+<div class="flex transition-transform duration-700 ease-in-out h-full" id="himti-main-carousel">
+<img alt="HIMTI Event 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/>
+<img alt="HIMTI Event 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/>
+</div>
+<!-- Controls -->
+<button class="carousel-btn left-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('himti-main-carousel', -1)">
+<span class="material-symbols-outlined text-primary">arrow_back</span>
+</button>
+<button class="carousel-btn right-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('himti-main-carousel', 1)">
+<span class="material-symbols-outlined text-primary">arrow_forward</span>
+</button>
+<!-- Pagination Dots -->
+<div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10" id="himti-main-carousel-dots">
+<button class="w-2.5 h-2.5 rounded-full bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 0)"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 1)"></button>
+</div>
+</div>
+<h3 class="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">HIMTI BINUS</h3>
+<div class="mb-16 max-w-[600px] w-full text-left mr-auto"><h4 class="font-bold text-black text-2xl uppercase tracking-tight mb-2 whitespace-nowrap">Education Activist (Academic Event Subdivision)</h4><p class="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p><ul class="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2"><li>Competitively selected through a rigorous multi-stage recruitment process to serve as an Education Activist in BINUS University's official Computer Science student organization.</li><li>Enhancing collaboration and academic skill development among peers, with a focus on insights and trends in the field of Computer Science.</li><li>Contributing as a core committee member for HIMTI BINUS flagship events.</li></ul></div>
+<h4 class="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl">Spotlight Events</h4>
+<!-- Spotlight Events Timeline -->
+<div class="grid grid-cols-1 gap-0 mb-12 relative border-outline-variant ml-6"><!-- Role 1 -->
+<div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+<div class="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
+<div class="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+<span class="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">1</span>
+</div>
+</div>
+<div class="flex-[3] flex flex-col justify-center max-w-[600px]">
+<div class="mb-4">
+<span class="font-headline-md text-primary block mb-2">HIMTI COMPANY VISIT 2025 | Coordinator of Registration Division</span>
+<span class="font-label-caps text-on-surface-variant uppercase">August 2025 - October 2025</span>
+</div>
+<ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
+<li>Designed and managed end-to-end registration system including registration forms, entry/exit tickets, and attendance sheets for participants and committee members.</li>
+<li>Oversaw e-certificate preparation for both participants and committee, coordinating with relevant divisions for distribution.</li>
+<li>Collaborated cross-functionally with the Promotion Division and provided on-site support during the event.</li>
+</ul>
+</div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-1"><img alt="Role 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+</div>
+<!-- Role 2 -->
+<div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+<div class="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
+<div class="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+<span class="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">2</span>
+</div>
+</div>
+<div class="flex-[3] flex flex-col justify-center max-w-[600px]">
+<div class="mb-4">
+<span class="font-headline-md text-primary block mb-2">TECHFEST 2025 | Staff of Technical Division</span>
+<span class="font-label-caps text-on-surface-variant uppercase">April 2025 - July 2025</span>
+</div>
+<ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
+<li>Managed precise timekeeping and ZOOM operations for a hybrid event with 50+ online and 30+ on-site participants.</li>
+<li>Recorded and archived all online sessions, ensuring complete documentation of the event.</li>
+<li>Provided real-time technical support across both virtual and physical event environments.</li>
+</ul>
+</div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-2"><img alt="Role 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+</div>
+<!-- Role 3 -->
+<div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+<div class="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
+<div class="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+<span class="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">3</span>
+</div>
+</div>
+<div class="flex-[3] flex flex-col justify-center max-w-[600px]">
+<div class="mb-4">
+<span class="font-headline-md text-primary block mb-2">SESVENT 2024 | Vice Coordinator of Technical Division</span>
+<span class="font-label-caps text-on-surface-variant uppercase">September 2024 - October 2024</span>
+</div>
+<ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
+<li>Managed ZOOM operations to ensure smooth execution of multiple online sessions attended by 300+ new activists.</li>
+<li>Led technical support for on-site activities and coordinated with the team.</li>
+<li>Successfully carried out cross-functional duties, organizing &amp; executing public transportation.</li>
+</ul>
+</div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-3"><img alt="Role 3" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+</div>
+<!-- Role 4 -->
+<div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+<div class="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
+<div class="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+<span class="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">4</span>
+</div>
+</div>
+<div class="flex-[3] flex flex-col justify-center max-w-[600px]">
+<div class="mb-4">
+<span class="font-headline-md text-primary block mb-2">HISHOT 2024 | Domestic Study Tour Staff</span>
+<span class="font-label-caps text-on-surface-variant uppercase">April 2024 - October 2024</span>
+</div>
+<ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
+<li>Managed planning &amp; execution, including logistical and accommodation coordination for a domestic study tour involving 60+ participants.</li>
+<li>Coordinated with external vendors to arrange transportation and catering.</li>
+<li>Contributed to securing CIMB Niaga as a partner for the domestic study destination.</li>
+</ul>
+</div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-4"><img alt="Role 4" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-sXexNFrYfzK20HBQRB-5bwex3B_JNi-OvICDk5ZswPrHsdp_BYCO2cVltGmZSIsKL_GUpUb0jaUfinP_QxPRgoUQ4gRdVBVvzTXwUHD3DM8jit0PVQNdUdFwb7AYM4vsWLWH0UcHR1mBaIATa94pgDEpImY-CZplbU7x1yOrbetN76MrLajPU1crVvM7d4JV_oVZNUjISRPsjE71jMFx2U0E-8nk6E5dUsY8CqlOMOr9d0FNgY5NcpRjCAEdfKYhw4Lp_9nnp4u"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+</div>
+<!-- Role 5 -->
+<div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+<div class="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
+<div class="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
+<div class="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+<span class="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">5</span>
+</div>
+</div>
+<div class="flex-[3] flex flex-col justify-center max-w-[600px]">
+<div class="mb-4">
+<span class="font-headline-md text-primary block mb-2">HTTP 2023 | Event Division Staff</span>
+<span class="font-label-caps text-on-surface-variant uppercase">September 2023 - November 2023</span>
+</div>
+<ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
+<li>Coordinated logistics and event flow for student welcoming ceremonies.</li>
+<li>Assisted in program development and participant management during the 3-day event.</li>
+<li>Ensured effective communication between technical and creative teams for live performances.</li>
+</ul>
+</div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-5"><img alt="Role 5" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+</div></div>
+<button class="w-full flex justify-between items-center py-4 px-6 border border-outline-variant hover:bg-surface-container transition-colors duration-300 mt-8" onclick="toggleDropdown('himti-archives')">
+<span class="font-bold uppercase text-primary tracking-tight text-left">VIEW OTHER HIMTI ROLES &amp; ARCHIVES</span>
+<span class="material-symbols-outlined text-primary transition-transform duration-300" id="himti-archives-icon">expand_more</span>
+</button>
+<div class="hidden w-full border border-t-0 border-outline-variant p-6 bg-surface-container-lowest" id="himti-archives">
+<p class="font-body-md text-on-surface-variant">Archived roles and experiences will be displayed here.</p>
+</div>
+</div></div></section>
+<!-- CAPABILITIES Section moved here -->
+<section class="py-section-gap px-container-padding border-b border-outline-variant bg-surface" id="capabilities">
+<div class="col-span-full flex justify-center mb-24">
+<h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">CAPABILITIES</h2>
+</div>
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
+<!-- Left Column: LANGUAGES & FRAMEWORKS -->
+<div class="flex flex-col">
+<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">
+        LANGUAGES &amp;<br/>FRAMEWORKS
+      </h3>
+<ul class="space-y-6">
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">code</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">PYTHON</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">javascript</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">JAVASCRIPT / TYPESCRIPT</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">rebase_edit</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">REACT &amp; NEXT.JS</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">dns</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">NODE.JS</span>
+</li>
+</ul>
+</div>
+<!-- Right Column: SOFTWARE & TOOLS -->
+<div class="flex flex-col">
+<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">
+        SOFTWARE &amp; TOOLS
+      </h3>
+<ul class="space-y-6">
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">terminal</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">GIT / GITHUB</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">dock</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">DOCKER</span>
+</li>
+<li class="flex items-center gap-4">
+<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-white">draw</span>
+</div>
+<span class="font-bold uppercase tracking-tight text-xl">FIGMA</span>
+</li>
+</ul>
+</div>
+</div>
+</section>
+<!-- 4. SELECTED WORKS -->
+<section class="py-section-gap px-container-padding border-b border-outline-variant bg-surface" id="selected-works">
+<div class="col-span-full flex justify-center mb-24">
+<h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">SELECTED WORKS</h2>
+</div>
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Card 1 -->
+<div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
+<img alt="Interactive Quiz App" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">INTERACTIVE QUIZ APP</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">A modular Flutter quiz app quiz gameplay, ready for further extension.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Dart</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Flutter</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
+</div>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
+<img alt="Disease Prediction Platform" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">DISEASE PREDICTION PLATFORM</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">A modern web using machine learning models for multiple disease prediction.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">TypeScript</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Python</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Vite</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Node.js</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO</a>
+</div>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
+<img alt="Report App" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/>
+<div class="p-6 flex flex-col flex-grow">
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">REPORT</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Public complaint application designed for easy submit complaints and feedback related to public services.</p>
+<div class="flex flex-wrap gap-2 mb-6">
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">HTML</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">CSS</span>
+<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Jupyter</span>
+</div>
+<div class="flex gap-4 pt-4 border-t border-outline-variant">
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO</a>
+</div>
+</div>
+</div></div></section><footer class="py-section-gap px-container-padding bg-background border-t border-outline-variant" id="contact">
+<div class="max-w-screen-2xl mx-auto">
+<h2 class="font-black text-[clamp(4rem,15vw,12rem)] leading-[0.8] tracking-tighter uppercase text-primary mb-24">
+      LET'S WORK<br/>TOGETHER
+    </h2>
+<div class="border-t border-outline-variant pt-8">
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
+<div class="flex flex-wrap gap-x-12 gap-y-4">
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">INSTAGRAM</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">LINKEDIN</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">GITHUB</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">EMAIL</a>
+</div>
+<div class="flex items-center gap-2 text-primary">
+<span class="material-symbols-outlined text-[20px]">location_on</span>
+<span class="font-label-caps">TANGERANG, INDONESIA</span>
+</div>
+</div>
+<div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mt-2">
+<p class="font-label-caps text-on-surface-variant">© 2026 FAHIM. ALL RIGHTS RESERVED.</p>
+<p class="font-label-caps text-on-surface-variant live-clock">07:43 AM WIB</p>
+</div>
+</div>
+</div>
+</footer></main>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+</body></html>
