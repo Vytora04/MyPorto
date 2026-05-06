@@ -342,7 +342,11 @@
             // Live clock
             function updateClock() {
                 const now = new Date();
-                const timeString = now.toLocaleTimeString('en-US', { hour: '2-digit', minute: '2-digit', timeZoneName: 'short' });
+                const timeString = now.toLocaleTimeString('en-US', { 
+                    timeZone: 'Asia/Jakarta',
+                    hour: '2-digit', 
+                    minute: '2-digit' 
+                }) + ' WIB';
                 const clockElements = document.querySelectorAll('.live-clock');
                 clockElements.forEach(el => el.textContent = timeString);
             }
@@ -384,7 +388,7 @@
 <h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">THE NARRATIVE</h2>
 </div>
 <div class="md:col-span-4 md:col-start-2 self-stretch">
-<img alt="Workspace placeholder" class="w-full h-full aspect-[3/4] object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-sXexNFrYfzK20HBQRB-5bwex3B_JNi-OvICDk5ZswPrHsdp_BYCO2cVltGmZSIsKL_GUpUb0jaUfinP_QxPRgoUQ4gRdVBVvzTXwUHD3DM8jit0PVQNdUdFwb7AYM4vsWLWH0UcHR1mBaIATa94pgDEpImY-CZplbU7x1yOrbetN76MrLajPU1crVvM7d4JV_oVZNUjISRPsjE71jMFx2U0E-8nk6E5dUsY8CqlOMOr9d0FNgY5NcpRjCAEdfKYhw4Lp_9nnp4u"/>
+<img alt="Introduction Image" class="w-full h-full aspect-[3/4] object-cover" src="./public/images/introduction.jpg"/>
 </div>
 <div class="md:col-span-5 md:col-start-7 flex flex-col justify-center">
 <h3 class="font-black text-[clamp(2.5rem,5vw,4rem)] leading-[0.9] tracking-tighter uppercase mb-gutter leading-[1.1] reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">HELLO, I AM <span class="text-academic-sage italic font-bold">FAHIMSYACH LOKANTA</span></h3>
@@ -394,7 +398,7 @@
 <!-- Ticker Tape -->
 <section class="border-b border-outline-variant ticker-wrap">
 <div class="ticker font-display-xl text-display-xl text-primary uppercase">
-            GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER | GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER | GAMER | MUSIC ENTHUSIAST | CREATOR | DEVELOPER
+            GAMER | MUSIC ENTHUSIAST | DEVELOPER | GAMER | MUSIC ENTHUSIAST | DEVELOPER | GAMER | MUSIC ENTHUSIAST | DEVELOPER
         </div>
 </section>
 <!-- 2. EDUCATION -->
@@ -445,8 +449,9 @@
 <div class="mb-32 w-full group/carousel relative">
 <div class="relative w-full aspect-video bg-surface-container overflow-hidden mb-8">
 <div class="flex transition-transform duration-700 ease-in-out h-full" id="icpc-carousel">
-<img alt="ICPC Event 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/>
-<img alt="ICPC Event 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuD2KAvZKJwGx7ucI73lDaPkzrvndQoCGxYnTxCrMyMbQ45OJ1I_Un2D8Fh8FtS4lGZ2Hc8XJ_3VokoDLqlp0eiq6B26ZK6WvBrifNdRkZ11rbWZrNbCVK-0rASidZTKacDf78FzI4K1q9D4tXSLsYHoPgjPbbKQqdYCLlwJXd2DSDO0AojGtPm814RhXjMy8GrTi-6mTOAs_WqCm5C6pmc9aiWmuG_6KE1AxTHa_POG7CIxa4aY1POODTbZfw52aKQTEvMscEQh6Ow6"/>
+<img alt="ICPC Event 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/icpc1.jpg"/>
+<img alt="ICPC Event 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/icpc2.jpg"/>
+<img alt="ICPC Event 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/icpc3.jpg"/>
 </div>
 <!-- Controls -->
 <button class="carousel-btn left-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('icpc-carousel', -1)">
@@ -459,6 +464,7 @@
 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10" id="icpc-carousel-dots">
 <button class="w-2.5 h-2.5 rounded-full bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('icpc-carousel', 0)"></button>
 <button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('icpc-carousel', 1)"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('icpc-carousel', 2)"></button>
 </div>
 </div>
 <h3 class="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">ICPC (International Collegiate Programming Contest)</h3>
@@ -475,8 +481,12 @@
 <div class="mb-24 w-full group/carousel relative">
 <div class="relative w-full aspect-video bg-surface-container overflow-hidden mb-8">
 <div class="flex transition-transform duration-700 ease-in-out h-full" id="himti-main-carousel">
-<img alt="HIMTI Event 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/>
-<img alt="HIMTI Event 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/>
+<img alt="HIMTI Event 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himti1.jpg"/>
+<img alt="HIMTI Event 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himti2.jpg"/>
+<img alt="HIMTI Event 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himti3.jpg"/>
+<img alt="HIMTI Event 4" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himti4.jpg"/>
+<img alt="HIMTI Event 5" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himti5.jpg"/>
+<img alt="HIMTI Certificate" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/himticertif1.jpg"/>
 </div>
 <!-- Controls -->
 <button class="carousel-btn left-8 bg-white border border-outline-variant shadow-sm" onclick="moveCarousel('himti-main-carousel', -1)">
@@ -489,11 +499,13 @@
 <div class="absolute bottom-6 left-1/2 -translate-x-1/2 flex gap-3 z-10" id="himti-main-carousel-dots">
 <button class="w-2.5 h-2.5 rounded-full bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 0)"></button>
 <button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 1)"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 2)"></button>
+<button class="w-2.5 h-2.5 rounded-full bg-white/50 hover:bg-white transition-all duration-300 shadow-sm" onclick="goToSlide('himti-main-carousel', 3)"></button>
 </div>
 </div>
 <h3 class="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">HIMTI BINUS</h3>
 <div class="mb-16 max-w-[600px] w-full text-left mr-auto"><h4 class="font-bold text-black text-2xl uppercase tracking-tight mb-2 whitespace-nowrap">Education Activist (Academic Event Subdivision)</h4><p class="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p><ul class="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2"><li>Competitively selected through a rigorous multi-stage recruitment process to serve as an Education Activist in BINUS University's official Computer Science student organization.</li><li>Enhancing collaboration and academic skill development among peers, with a focus on insights and trends in the field of Computer Science.</li><li>Contributing as a core committee member for HIMTI BINUS flagship events.</li></ul></div>
-<h4 class="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl">Spotlight Events</h4>
+<h4 class="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl">HIMTI Events Highlights</h4>
 <!-- Spotlight Events Timeline -->
 <div class="grid grid-cols-1 gap-0 mb-12 relative border-outline-variant ml-6"><!-- Role 1 -->
 <div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
@@ -514,7 +526,11 @@
 <li>Collaborated cross-functionally with the Promotion Division and provided on-site support during the event.</li>
 </ul>
 </div>
-<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-1"><img alt="Role 1" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-1">
+<img alt="COMVIS 2025 Image 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/comvis1,2025-1.jpg"/>
+<img alt="COMVIS 2025 Image 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/comvis1,2025-2.jpg"/>
+<img alt="COMVIS 2025 Image 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/comvis1,2025-3.jpg"/>
+</div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-1', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
 </div>
 <!-- Role 2 -->
 <div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
@@ -526,7 +542,7 @@
 </div>
 <div class="flex-[3] flex flex-col justify-center max-w-[600px]">
 <div class="mb-4">
-<span class="font-headline-md text-primary block mb-2">TECHFEST 2025 | Staff of Technical Division</span>
+<span class="font-headline-md text-primary block mb-2">TECHFEST 2025 | Technical Division Staff</span>
 <span class="font-label-caps text-on-surface-variant uppercase">April 2025 - July 2025</span>
 </div>
 <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -535,7 +551,12 @@
 <li>Provided real-time technical support across both virtual and physical event environments.</li>
 </ul>
 </div>
-<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-2"><img alt="Role 2" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-2">
+<img alt="TECHFEST 2025 Image 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techfest2025-1.jpg"/>
+<img alt="TECHFEST 2025 Image 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techfest2025-2.jpg"/>
+<img alt="TECHFEST 2025 Image 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techfest2025-3.jpg"/>
+<img alt="TECHFEST 2025 Image 4" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techfest2025-4.jpg"/>
+</div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-2', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
 </div>
 <!-- Role 3 -->
 <div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
@@ -556,7 +577,11 @@
 <li>Successfully carried out cross-functional duties, organizing &amp; executing public transportation.</li>
 </ul>
 </div>
-<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-3"><img alt="Role 3" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-3">
+<img alt="SESVENT 2024 Image 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/sesvent2024-1.jpg"/>
+<img alt="SESVENT 2024 Image 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/sesvent2024-2.jpg"/>
+<img alt="SESVENT 2024 Image 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/sesvent2024-3.jpg"/>
+</div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-3', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
 </div>
 <!-- Role 4 -->
 <div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
@@ -577,7 +602,11 @@
 <li>Contributed to securing CIMB Niaga as a partner for the domestic study destination.</li>
 </ul>
 </div>
-<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-4"><img alt="Role 4" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCk-sXexNFrYfzK20HBQRB-5bwex3B_JNi-OvICDk5ZswPrHsdp_BYCO2cVltGmZSIsKL_GUpUb0jaUfinP_QxPRgoUQ4gRdVBVvzTXwUHD3DM8jit0PVQNdUdFwb7AYM4vsWLWH0UcHR1mBaIATa94pgDEpImY-CZplbU7x1yOrbetN76MrLajPU1crVvM7d4JV_oVZNUjISRPsjE71jMFx2U0E-8nk6E5dUsY8CqlOMOr9d0FNgY5NcpRjCAEdfKYhw4Lp_9nnp4u"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-4">
+<img alt="HISHOT 2024 Image 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/hishot2024-1.jpg"/>
+<img alt="HISHOT 2024 Image 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/hishot2024-2.jpg"/>
+<img alt="HISHOT 2024 Image 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/hishot2024-3.jpg"/>
+</div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-4', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
 </div>
 <!-- Role 5 -->
 <div class="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
@@ -589,16 +618,20 @@
 </div>
 <div class="flex-[3] flex flex-col justify-center max-w-[600px]">
 <div class="mb-4">
-<span class="font-headline-md text-primary block mb-2">HTTP 2023 | Event Division Staff</span>
-<span class="font-label-caps text-on-surface-variant uppercase">September 2023 - November 2023</span>
+<span class="font-headline-md text-primary block mb-2">TECHNO 2024 | Sponsor Division Staff</span>
+<span class="font-label-caps text-on-surface-variant uppercase">April 2024 - September 2024</span>
 </div>
 <ul class="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
-<li>Coordinated logistics and event flow for student welcoming ceremonies.</li>
-<li>Assisted in program development and participant management during the 3-day event.</li>
-<li>Ensured effective communication between technical and creative teams for live performances.</li>
+<li>Contributed to the division's achievement of securing over Rp15 million in total funds.</li>
+<li>Assisted with F&B fundraising and paid-promote implementation, ensuring a financial surplus.</li>
+<li>Supported cross-divisional operations as an usher, providing event support for 600+ new students.</li>
 </ul>
 </div>
-<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-5"><img alt="Role 5" class="w-full h-full flex-shrink-0 object-cover grayscale" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/></div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
+<div class="w-full flex-[2] aspect-video bg-surface-container overflow-hidden relative flex-shrink-0 group/carousel"><div class="flex transition-transform duration-700 ease-in-out h-full" id="carousel-role-5">
+<img alt="TECHNO 2024 Image 1" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techno2024-1.jpg"/>
+<img alt="TECHNO 2024 Image 2" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techno2024-2.jpg"/>
+<img alt="TECHNO 2024 Image 3" class="w-full h-full flex-shrink-0 object-cover" src="./public/images/experience/techno2024-3.jpg"/>
+</div><div class="absolute bottom-4 right-4 flex gap-2 z-20"><div class="flex bg-black/40 backdrop-blur-sm rounded-sm border border-white/10 overflow-hidden"><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', -1)"><span class="material-symbols-outlined text-sm text-white">chevron_left</span></button><div class="w-[1px] h-4 bg-white/20 self-center"></div><button class="w-10 h-10 hover:bg-white/20 flex items-center justify-center transition-all duration-300" onclick="moveCarousel('carousel-role-5', 1)"><span class="material-symbols-outlined text-sm text-white">chevron_right</span></button></div></div></div>
 </div></div>
 <button class="w-full flex justify-between items-center py-4 px-6 border border-outline-variant hover:bg-surface-container transition-colors duration-300 mt-8" onclick="toggleDropdown('himti-archives')">
 <span class="font-bold uppercase text-primary tracking-tight text-left">VIEW OTHER HIMTI ROLES &amp; ARCHIVES</span>
@@ -613,63 +646,47 @@
 <div class="col-span-full flex justify-center mb-24">
 <h2 class="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[10vw]">CAPABILITIES</h2>
 </div>
-<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-gutter">
-<!-- Left Column: LANGUAGES & FRAMEWORKS -->
+<div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Column 1: PROGRAMMING -->
 <div class="flex flex-col">
-<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">
-        LANGUAGES &amp;<br/>FRAMEWORKS
-      </h3>
+<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">PROGRAMMING</h3>
 <ul class="space-y-6">
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">code</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">PYTHON</span>
-</li>
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">javascript</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">JAVASCRIPT / TYPESCRIPT</span>
-</li>
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">rebase_edit</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">REACT &amp; NEXT.JS</span>
-</li>
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">dns</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">NODE.JS</span>
-</li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">terminal</span></div><span class="font-bold uppercase tracking-tight text-xl">C / C++</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">code</span></div><span class="font-bold uppercase tracking-tight text-xl">PYTHON</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">database</span></div><span class="font-bold uppercase tracking-tight text-xl">SQL</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">html</span></div><span class="font-bold uppercase tracking-tight text-xl">HTML</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">css</span></div><span class="font-bold uppercase tracking-tight text-xl">CSS</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">bar_chart</span></div><span class="font-bold uppercase tracking-tight text-xl">R</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">javascript</span></div><span class="font-bold uppercase tracking-tight text-xl">JAVASCRIPT (EXPLORING)</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">coffee</span></div><span class="font-bold uppercase tracking-tight text-xl">JAVA (EXPLORING)</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">app_shortcut</span></div><span class="font-bold uppercase tracking-tight text-xl">FLUTTER (EXPLORING)</span></li>
 </ul>
 </div>
-<!-- Right Column: SOFTWARE & TOOLS -->
+<!-- Column 2: TOOLS -->
 <div class="flex flex-col">
-<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">
-        SOFTWARE &amp; TOOLS
-      </h3>
+<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">TOOLS</h3>
 <ul class="space-y-6">
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">terminal</span>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">code_blocks</span></div><span class="font-bold uppercase tracking-tight text-xl">VISUAL STUDIO CODE</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">terminal</span></div><span class="font-bold uppercase tracking-tight text-xl">GITHUB</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">draw</span></div><span class="font-bold uppercase tracking-tight text-xl">FIGMA</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">cloud</span></div><span class="font-bold uppercase tracking-tight text-xl">GOOGLE COLAB</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">developer_mode</span></div><span class="font-bold uppercase tracking-tight text-xl">CODEBLOCK / DEVC++</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">database</span></div><span class="font-bold uppercase tracking-tight text-xl">MYSQL WORKBENCH</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">laptop_chromebook</span></div><span class="font-bold uppercase tracking-tight text-xl">ECLIPSE FOR JAVA</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">analytics</span></div><span class="font-bold uppercase tracking-tight text-xl">RSTUDIO</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">model_training</span></div><span class="font-bold uppercase tracking-tight text-xl">RAPIDMINER</span></li>
+</ul>
 </div>
-<span class="font-bold uppercase tracking-tight text-xl">GIT / GITHUB</span>
-</li>
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">dock</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">DOCKER</span>
-</li>
-<li class="flex items-center gap-4">
-<div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0">
-<span class="material-symbols-outlined text-white">draw</span>
-</div>
-<span class="font-bold uppercase tracking-tight text-xl">FIGMA</span>
-</li>
+<!-- Column 3: SOFTWARE -->
+<div class="flex flex-col">
+<h3 class="font-black text-4xl leading-[0.9] tracking-tighter uppercase mb-12">SOFTWARE</h3>
+<ul class="space-y-6">
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">description</span></div><span class="font-bold uppercase tracking-tight text-xl">MICROSOFT OFFICE SUITE</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">cloud</span></div><span class="font-bold uppercase tracking-tight text-xl">GOOGLE WORKSPACE</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">forum</span></div><span class="font-bold uppercase tracking-tight text-xl">DISCORD</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">videocam</span></div><span class="font-bold uppercase tracking-tight text-xl">ZOOM</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">palette</span></div><span class="font-bold uppercase tracking-tight text-xl">CANVA</span></li>
+<li class="flex items-center gap-4"><div class="w-12 h-12 bg-primary rounded-lg flex items-center justify-center flex-shrink-0"><span class="material-symbols-outlined text-white">book</span></div><span class="font-bold uppercase tracking-tight text-xl">NOTION</span></li>
 </ul>
 </div>
 </div>
@@ -681,51 +698,59 @@
 </div>
 <div class="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8"><!-- Card 1 -->
 <div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
-<img alt="Interactive Quiz App" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuCt6iA_JddAj3QF1vW-CRxTnCtQ6pgf4pBqXBMnEj4GqjkTZDz5-GutSHWFXn952blXoYcpSMqe8Lfzdzf6lv6PuJGwKGHUNcvzhopjg2TGpk3swYyhxkUC3yu9IBWSfDM-eLsyBUCRHF5Ud8bfZjK6iolEYEAzuuVe21Oi07AqAD2xIhjoBIviCqnB8kMUJolCGPYTvtqiRh8m_krTBDQeGN681S4gSS-TSFyjd_Tx7pIWXn8POYkZRAxo0gym0S_pgkBA_LZW2Cu6"/>
+<img alt="SkillBridge" class="w-full aspect-video object-cover border-b border-outline-variant" src="/public/images/project/project1.png"/>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="font-bold text-primary uppercase tracking-tight mb-2">INTERACTIVE QUIZ APP</h3>
-<p class="font-body-md text-on-surface-variant mb-6 flex-grow">A modular Flutter quiz app quiz gameplay, ready for further extension.</p>
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">SkillBridge</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Platform to connect individuals with non-profit organizations to share skills, collaborate on projects, and match people to opportunities based on their skills.</p>
 <div class="flex flex-wrap gap-2 mb-6">
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Dart</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Flutter</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 border border-red-200 text-xs font-bold uppercase rounded-full">Laravel (Blade)</span>
+<span class="px-3 py-1 bg-indigo-100 text-indigo-800 border border-indigo-200 text-xs font-bold uppercase rounded-full">PHP</span>
+<span class="px-3 py-1 bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase rounded-full">Tailwind CSS</span>
+<span class="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">Vite</span>
+<span class="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">JavaScript</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold uppercase rounded-full">MySQL</span>
 </div>
 <div class="flex gap-4 pt-4 border-t border-outline-variant">
-<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/SkillBridge" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
 </div>
 </div>
 </div>
 <!-- Card 2 -->
 <div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
-<img alt="Disease Prediction Platform" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuB3EyjHK0e_Q_nXkcaIVdhX5Oc-kbPm6r3lJLZ5v1WvE8XzfadMRbzGPWWJSUWdR-Sncj62HRqxzAB4yY94tEatH8wvt9HT_60RbNprkNgnXDrUyRDky3FCBcrVwFLj1qptGnN_Ma5IxzK-4rBREj5AVU6sbhvzdWGi8A6v_ktY_1zUSoqoAk6L2vG6DgU0SPEIttt3vm1-2l6mnbQ7pkf5Mx9clky07gV9gxhsAMWOuEOZVDzSM0DDTOgxLUf_iWt659PGWZVvFG8d"/>
+<img alt="SMARTNEWSSUMM" class="w-full aspect-video object-cover border-b border-outline-variant" src="/public/images/project/project2.png"/>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="font-bold text-primary uppercase tracking-tight mb-2">DISEASE PREDICTION PLATFORM</h3>
-<p class="font-body-md text-on-surface-variant mb-6 flex-grow">A modern web using machine learning models for multiple disease prediction.</p>
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">SMARTNEWSSUMM</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Summarizes news articles into clear, concise summaries using a hybrid approach with retrieval support for better context and accuracy.</p>
 <div class="flex flex-wrap gap-2 mb-6">
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">TypeScript</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Python</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Vite</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Node.js</span>
+<span class="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">PYTHON</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 border border-teal-200 text-xs font-bold uppercase rounded-full">FASTAPI</span>
+<span class="px-3 py-1 bg-red-100 text-red-800 border border-red-200 text-xs font-bold uppercase rounded-full">STREAMLIT</span>
+<span class="px-3 py-1 bg-orange-100 text-orange-800 border border-orange-200 text-xs font-bold uppercase rounded-full">PYTORCH</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold uppercase rounded-full">TRANSFORMERS</span>
+<span class="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">PEFT (LORA)</span>
 </div>
 <div class="flex gap-4 pt-4 border-t border-outline-variant">
-<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
-<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/SmartNewsSumm" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
 </div>
 </div>
 </div>
 <!-- Card 3 -->
 <div class="bg-surface-container-lowest border border-outline-variant flex flex-col">
-<img alt="Report App" class="w-full aspect-video object-cover grayscale border-b border-outline-variant" src="https://lh3.googleusercontent.com/aida-public/AB6AXuArDpsg1C_GPaSMAL2CM51cUFGxXu4SfRqNKbfhUpQxP3ydKqnh6x-8hvkVJoXEJebbpH7hPeuqUswvg3nvOmiHY2Da8wkjZsNIpcVjEFzIYu8X7hU9VcdUI9Tqy-B7glGiqep38OBDRUl6t8LuS66QchYWhwUbybA0BDf5cVREInSoZcXHTFJbZ9L_5wrlQpjqw-ThGULsBzUUt0l1XAUEYuGaupEhKLZAYZRs6pHQF_welA2vwIjEIoQf-QZr22ajQDOEkcYfn0gf"/>
+<img alt="DIAGNOSIFY" class="w-full aspect-video object-cover border-b border-outline-variant" src="/public/images/project/project3.png"/>
 <div class="p-6 flex flex-col flex-grow">
-<h3 class="font-bold text-primary uppercase tracking-tight mb-2">REPORT</h3>
-<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Public complaint application designed for easy submit complaints and feedback related to public services.</p>
+<h3 class="font-bold text-primary uppercase tracking-tight mb-2">DIAGNOSIFY</h3>
+<p class="font-body-md text-on-surface-variant mb-6 flex-grow">Enables disease risk prediction across multiple categories using trained machine-learning models, with support for uploading datasets to train and test custom predictors.</p>
 <div class="flex flex-wrap gap-2 mb-6">
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">HTML</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">CSS</span>
-<span class="px-3 py-1 bg-surface-container border border-outline-variant text-xs font-bold uppercase rounded-full text-on-surface-variant">Jupyter</span>
+<span class="px-3 py-1 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold uppercase rounded-full">TYPESCRIPT</span>
+<span class="px-3 py-1 bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase rounded-full">REACT</span>
+<span class="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">VITE</span>
+<span class="px-3 py-1 bg-teal-100 text-teal-800 border border-teal-200 text-xs font-bold uppercase rounded-full">TAILWIND CSS</span>
+<span class="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">PYTHON</span>
+<span class="px-3 py-1 bg-gray-100 text-gray-800 border border-gray-200 text-xs font-bold uppercase rounded-full">FLASK</span>
 </div>
 <div class="flex gap-4 pt-4 border-t border-outline-variant">
-<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
-<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="#"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/Diagnosify" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">code</span> CODE</a>
+<a class="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://diagnosify-inky.vercel.app" target="_blank" rel="noopener noreferrer"><span class="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO (FRONTEND only)</a>
 </div>
 </div>
 </div></div></section><footer class="py-section-gap px-container-padding bg-background border-t border-outline-variant" id="contact">
@@ -736,10 +761,10 @@
 <div class="border-t border-outline-variant pt-8">
 <div class="flex flex-col md:flex-row justify-between items-start md:items-center gap-8">
 <div class="flex flex-wrap gap-x-12 gap-y-4">
-<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">INSTAGRAM</a>
-<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">LINKEDIN</a>
-<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">GITHUB</a>
-<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="#">EMAIL</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="https://www.instagram.com/lokantaahim/" target="_blank" rel="noopener noreferrer">INSTAGRAM</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="https://www.linkedin.com/in/fahimsyach-lokanta/" target="_blank" rel="noopener noreferrer">LINKEDIN</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="https://github.com/Vytora04" target="_blank" rel="noopener noreferrer">GITHUB</a>
+<a class="font-label-caps text-primary hover:opacity-60 transition-opacity" href="mailto:lokantafahimsyach@gmail.com">EMAIL</a>
 </div>
 <div class="flex items-center gap-2 text-primary">
 <span class="material-symbols-outlined text-[20px]">location_on</span>
