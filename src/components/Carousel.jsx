@@ -1,7 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 
-const Carousel = ({ images, dots = true }) => {
+const Carousel = ({ images, dots = true, autoPlay = false }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
+  const timerRef = useRef(null);
+
+  const startTimer = () => {
+    if (!autoPlay) return;
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrentIndex(prev => (prev + 1 >= images.length ? 0 : prev + 1));
+    }, 4000);
+  };
+
+  useEffect(() => {
+    startTimer();
+    return () => clearInterval(timerRef.current);
+  }, [autoPlay, images.length]);
 
   const moveCarousel = (direction) => {
     setCurrentIndex((prev) => {
@@ -10,6 +24,12 @@ const Carousel = ({ images, dots = true }) => {
       if (nextIndex >= images.length) return 0;
       return nextIndex;
     });
+    startTimer(); // Reset auto-advance timer on manual interaction
+  };
+
+  const goToIndex = (i) => {
+    setCurrentIndex(i);
+    startTimer();
   };
 
   const offset = -currentIndex * 100;
@@ -38,7 +58,7 @@ const Carousel = ({ images, dots = true }) => {
               <button 
                 key={i} 
                 className={`w-2.5 h-2.5 rounded-full transition-all duration-300 shadow-sm ${i === currentIndex ? 'bg-white scale-110' : 'bg-white/50 hover:bg-white'}`}
-                onClick={() => setCurrentIndex(i)}
+                onClick={() => goToIndex(i)}
               ></button>
             ))}
           </div>

@@ -11,15 +11,19 @@ const Experience = () => {
       </div>
       <div className="max-w-screen-xl mx-auto flex flex-col items-center">
         {/* ICPC Block */}
-        <div className="mb-32 w-full">
-          <Carousel images={[
-            '/images/experience/icpc1.jpg',
-            '/images/experience/icpc2.jpg',
-            '/images/experience/icpc3.jpg'
-          ]} />
-          <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">ICPC (International Collegiate Programming Contest)</h3>
-          <div className="max-w-[600px] w-full text-left mr-auto">
-            <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2 whitespace-nowrap">Registration Staff</h4>
+        <div className="mb-32 w-full flex flex-col md:flex-row gap-12 items-start">
+          {/* Left: Carousel */}
+          <div className="w-full md:w-[45%] flex-shrink-0">
+            <Carousel autoPlay images={[
+              '/images/experience/icpc1.jpg',
+              '/images/experience/icpc2.jpg',
+              '/images/experience/icpc3.jpg'
+            ]} />
+          </div>
+          {/* Right: Text */}
+          <div className="flex-1 flex flex-col justify-center">
+            <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">ICPC (International Collegiate Programming Contest)</h3>
+            <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2">Registration Staff</h4>
             <p className="font-label-caps text-on-surface-variant mb-6 uppercase">October 2024 - December 2024</p>
             <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
               <li>Successfully facilitated the registration for 500+ student and faculty teams, ensuring a smooth registration process for the INC 2024 competition.</li>
@@ -31,23 +35,29 @@ const Experience = () => {
 
         {/* HIMTI BINUS Block */}
         <div className="mb-24 w-full">
-          <Carousel images={[
-            '/images/experience/himti1.jpg',
-            '/images/experience/himti2.jpg',
-            '/images/experience/himti3.jpg',
-            '/images/experience/himti4.jpg',
-            '/images/experience/himti5.jpg',
-            '/images/experience/himticertif1.jpg'
-          ]} />
-          <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(2.5rem,5vw,4.2rem)]">HIMTI BINUS</h3>
-          <div className="mb-16 max-w-[600px] w-full text-left mr-auto">
-            <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2 whitespace-nowrap">Education Activist (Academic Event Subdivision)</h4>
-            <p className="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p>
-            <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
-              <li>Competitively selected through a rigorous multi-stage recruitment process to serve as an Education Activist in BINUS University's official Computer Science student organization.</li>
-              <li>Enhancing collaboration and academic skill development among peers, with a focus on insights and trends in the field of Computer Science.</li>
-              <li>Contributing as a core committee member for HIMTI BINUS flagship events.</li>
-            </ul>
+          <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
+            {/* Left: Carousel */}
+            <div className="w-full md:w-[45%] flex-shrink-0">
+              <Carousel autoPlay images={[
+                '/images/experience/himti1.jpg',
+                '/images/experience/himti2.jpg',
+                '/images/experience/himti3.jpg',
+                '/images/experience/himti4.jpg',
+                '/images/experience/himti5.jpg',
+                '/images/experience/himticertif1.jpg'
+              ]} />
+            </div>
+            {/* Right: Text */}
+            <div className="flex-1 flex flex-col justify-center">
+              <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">HIMTI BINUS</h3>
+              <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2">Education Activist (Academic Event Subdivision)</h4>
+              <p className="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p>
+              <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
+                <li>Competitively selected through a rigorous multi-stage recruitment process to serve as an Education Activist in BINUS University's official Computer Science student organization.</li>
+                <li>Enhancing collaboration and academic skill development among peers, with a focus on insights and trends in the field of Computer Science.</li>
+                <li>Contributing as a core committee member for HIMTI BINUS flagship events.</li>
+              </ul>
+            </div>
           </div>
           
           <h4 className="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl">HIMTI Events Highlights</h4>

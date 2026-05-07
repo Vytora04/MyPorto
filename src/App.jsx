@@ -17,12 +17,11 @@ function App() {
         entries.forEach(entry => {
             if (entry.isIntersecting) {
                 entry.target.classList.add('is-visible');
-                // Add staggered delay if multiple elements visible
                 const index = Array.from(entry.target.parentElement.children).indexOf(entry.target);
                 entry.target.style.transitionDelay = `${index * 0.1}s`;
             } else {
                 entry.target.classList.remove('is-visible');
-                entry.target.style.transitionDelay = '0s'; // Reset delay so it disappears instantly
+                entry.target.style.transitionDelay = '0s';
             }
         });
     }, { threshold: 0.1 });
@@ -30,24 +29,28 @@ function App() {
     const textElements = document.querySelectorAll('.reveal-text');
     textElements.forEach(el => textObserver.observe(el));
 
-    // Separate observer for titles to trigger EXACTLY when they reach the middle of the screen
-    // It extends 1000% upwards so it stays active as long as you've scrolled past it.
-    const titleObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('is-visible');
-            } else {
-                entry.target.classList.remove('is-visible');
-            }
-        });
-    }, { rootMargin: '1000% 0px -50% 0px' });
-
+    // Title color effect: add is-visible once title reaches middle of screen,
+    // keep it until the user scrolls back UP past the element (it goes below the top)
     const titleElements = document.querySelectorAll('.title-hover-effect');
-    titleElements.forEach(el => titleObserver.observe(el));
+
+    const handleScroll = () => {
+      const viewportMid = window.innerHeight * 0.5;
+      titleElements.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < viewportMid) {
+          el.classList.add('is-visible');
+        } else {
+          el.classList.remove('is-visible');
+        }
+      });
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll(); // Run once on mount to catch initial state
 
     return () => {
       textElements.forEach(el => textObserver.unobserve(el));
-      titleElements.forEach(el => titleObserver.unobserve(el));
+      window.removeEventListener('scroll', handleScroll);
     };
   }, []);
 
@@ -58,10 +61,10 @@ function App() {
         <Hero />
         <Narrative />
         <TickerTape />
-        <Education />
         <Experience />
         <Capabilities />
         <SelectedWorks />
+        <Education />
         <Footer />
       </main>
     </div>
