@@ -10,6 +10,15 @@ const navLinks = [
 const Navbar = () => {
   const [open, setOpen] = useState(false);
 
+  const scrollToSection = (e, id) => {
+    e.preventDefault();
+    const element = document.getElementById(id.replace('#', ''));
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
+    setOpen(false);
+  };
+
   return (
     <nav className="fixed top-0 left-0 w-full z-[200] bg-surface border-b border-primary px-16 h-[80px] flex items-center justify-between">
 
@@ -28,8 +37,8 @@ const Navbar = () => {
               <a
                 key={link.href}
                 href={link.href}
-                onClick={() => setOpen(false)}
-                className="font-label-caps text-primary whitespace-nowrap px-3 py-2 hover:bg-primary hover:text-on-primary transition-colors"
+                onClick={(e) => scrollToSection(e, link.href)}
+                className="font-label-caps text-primary whitespace-nowrap px-3 py-2 hover:bg-primary hover:text-on-primary transition-colors cursor-pointer"
               >
                 {link.label}
               </a>
