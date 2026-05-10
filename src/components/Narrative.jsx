@@ -2,20 +2,53 @@ import React from 'react';
 
 const Narrative = () => {
   return (
-    <section className="py-section-gap px-container-padding grid grid-cols-1 md:grid-cols-12 items-center border-b border-outline-variant gap-12" id="the-narrative">
-      <div className="col-span-full flex justify-center mb-12">
-        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">THE NARRATIVE</h2>
-      </div>
-      <div className="md:col-span-3 md:col-start-2">
-        <img alt="Introduction" className="w-full aspect-[3/4] object-cover rounded-md reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)] hover:scale-[1.02] hover:shadow-lg" src="/images/introduction.jpg" />
-      </div>
-      <div className="md:col-span-6 md:col-start-6 flex flex-col justify-center">
-        <h3 className="font-black text-[clamp(2.5rem,5vw,4rem)] leading-[0.9] tracking-tighter uppercase mb-gutter reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-          HELLO, I AM <span className="text-academic-sage italic font-bold">FAHIMSYACH LOKANTA</span>
-        </h3>
-        <p className="font-body-lg text-body-lg text-on-surface-variant mt-6 reveal-text opacity-0 translate-y-8 transition-all duration-1000 ease-[cubic-bezier(0.16,1,0.3,1)]">
-          I am a 6th-semester student at BINUS University based in Tangerang City. Proactive and capable to collaborate in a team, communicate effectively, and solve technical problems. Eager to learn and apply skills in an innovative environment.
-        </p>
+    <section className="py-24 px-container-padding bg-surface relative overflow-hidden scroll-mt-24" id="the-narrative">
+      {/* Decorative background element */}
+      <div className="absolute -top-24 -left-24 w-96 h-96 bg-ghibli-green/5 rounded-full blur-3xl -z-10"></div>
+      
+      <div className="max-w-[1100px] mx-auto">
+        <div className="flex flex-col md:flex-row items-center gap-16">
+          
+          {/* Left: Image with organic frame */}
+          <div className="w-full md:w-[40%] reveal reveal-left flex-shrink-0">
+            <div className="relative group">
+              <div className="absolute inset-0 bg-ghibli-green/20 rounded-[2rem] rotate-3 group-hover:rotate-6 transition-transform -z-10"></div>
+              <img 
+                alt="Fahimsyach Lokanta" 
+                className="w-full aspect-[4/5] object-cover rounded-[2rem] border-2 border-white shadow-xl transition-all duration-700 hover:-translate-y-2 hover:-rotate-1" 
+                src="/images/introduction.jpg" 
+              />
+              <div className="absolute -bottom-4 -right-4 bg-white px-4 py-2 rounded-full shadow-lg border border-gray-100 flex items-center gap-2">
+                <span className="w-2 h-2 bg-ghibli-green rounded-full animate-pulse"></span>
+                <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest">Available for Internship</span>
+              </div>
+            </div>
+          </div>
+
+          {/* Right: Narrative Content */}
+          <div className="flex-1 reveal reveal-right">
+            <div className="space-y-6">
+              <div className="inline-block px-3 py-1 bg-ghibli-blue/10 text-ghibli-blue rounded-full text-[10px] font-bold uppercase tracking-widest mb-4">
+                The Narrative
+              </div>
+              
+              <h2 className="font-serif text-4xl md:text-5xl font-black text-ghibli-dark leading-tight">
+                Hello, I am <span className="text-ghibli-green italic">Fahimsyach Lokanta</span>
+              </h2>
+              
+              <div className="glass-card p-8 border-l-4 border-l-ghibli-green relative">
+                <i className="ph-fill ph-quotes text-4xl text-ghibli-green/20 absolute top-4 right-6"></i>
+                <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                  I am a <span className="text-ghibli-dark font-bold underline decoration-ghibli-yellow/40 decoration-4 underline-offset-2">Computer Science</span> student at BINUS University, based in the vibrant city of Tangerang. 
+                </p>
+                <p className="text-gray-600 mt-6 leading-relaxed">
+                  I thrive on solving technical puzzles and collaborating in dynamic teams. My journey is driven by a proactive spirit and a deep-seated eagerness to apply my skills within innovative environments that push the boundaries of technology.
+                </p>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </section>
   );

@@ -5,7 +5,7 @@ const Experience = () => {
   const [showArchives, setShowArchives] = useState(false);
 
   return (
-    <section className="py-section-gap px-container-padding border-b border-outline-variant" id="featured-experience">
+    <section className="py-section-gap px-container-padding scroll-mt-24" id="featured-experience">
       <div className="col-span-full flex justify-center mb-24 w-full">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">FEATURED EXPERIENCE</h2>
       </div>
@@ -49,7 +49,10 @@ const Experience = () => {
             </div>
             {/* Right: Text */}
             <div className="flex-1 flex flex-col justify-center">
-              <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">HIMTI BINUS</h3>
+              <div className="flex justify-between items-start mb-8 pb-8 border-b border-primary">
+                <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">HIMTI BINUS</h3>
+                <span className="px-3 py-1 bg-blue-50 text-blue-600 border border-blue-200 text-[10px] font-bold uppercase rounded-full mt-2">Computer Science Student Association</span>
+              </div>
               <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2">Education Activist (Academic Event Subdivision)</h4>
               <p className="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p>
               <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">

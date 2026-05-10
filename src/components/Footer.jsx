@@ -43,7 +43,7 @@ const Footer = () => {
   const line2 = ['TOGETHER'];
 
   return (
-    <footer className="pb-8 px-container-padding bg-background min-h-[calc(100vh-80px)] flex flex-col" id="contact">
+    <footer className="pb-8 px-container-padding bg-background min-h-[calc(100vh-80px)] flex flex-col scroll-mt-24" id="contact">
       <div className="max-w-screen-2xl mx-auto flex flex-col justify-between flex-grow w-full">
         <div className="flex-grow flex flex-col justify-center">
           <h2

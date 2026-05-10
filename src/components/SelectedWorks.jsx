@@ -2,13 +2,13 @@ import React from 'react';
 
 const SelectedWorks = () => {
   return (
-    <section className="py-section-gap px-container-padding border-b border-outline-variant bg-surface" id="selected-works">
+    <section className="py-section-gap px-container-padding bg-surface scroll-mt-24" id="selected-works">
       <div className="col-span-full flex justify-center mb-24">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">SELECTED WORKS</h2>
       </div>
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
         {/* Card 1 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="SkillBridge" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project1.png" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SkillBridge</h3>
@@ -28,7 +28,7 @@ const SelectedWorks = () => {
           </div>
         </div>
         {/* Card 2 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="SMARTNEWSSUMM" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project2.png" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SMARTNEWSSUMM</h3>
@@ -48,7 +48,8 @@ const SelectedWorks = () => {
           </div>
         </div>
         {/* Card 3 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        {/* Card 3 */}
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           {/* image coming soon */}
           <div className="w-full aspect-video bg-surface-container-high border-b border-outline-variant flex items-center justify-center">
             <span className="text-on-surface-variant font-bold text-sm uppercase">Image Coming Soon</span>
@@ -68,7 +69,7 @@ const SelectedWorks = () => {
           </div>
         </div>
         {/* Card 4 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="DIAGNOSIFY" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project4.png" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">DIAGNOSIFY</h3>
@@ -88,7 +89,7 @@ const SelectedWorks = () => {
           </div>
         </div>
         {/* Card 5 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="LAPORCERDAS" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project5.png" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">LAPORCERDAS</h3>
@@ -108,7 +109,7 @@ const SelectedWorks = () => {
           </div>
         </div>
         {/* Card 6 */}
-        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col">
+        <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="SIGMARIZZ" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project6.jpg" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SIGMARIZZ</h3>
