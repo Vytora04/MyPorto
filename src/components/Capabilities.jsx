@@ -138,7 +138,7 @@ const Capabilities = () => {
   }, []);
 
   return (
-    <section className="py-section-gap px-container-padding bg-surface scroll-mt-24" id="competencies">
+    <section className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" id="competencies">
       <div className="col-span-full flex justify-center mb-24">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter title-hover-effect cursor-default text-[5vw]">PROFESSIONAL COMPETENCIES</h2>
       </div>

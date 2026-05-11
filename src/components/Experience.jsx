@@ -5,7 +5,7 @@ const Experience = () => {
   const [showArchives, setShowArchives] = useState(false);
 
   return (
-    <section className="py-section-gap px-container-padding scroll-mt-24" id="featured-experience">
+    <section className="pt-8 pb-section-gap px-container-padding scroll-mt-24" id="featured-experience">
       <div className="col-span-full flex justify-center mb-24 w-full">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">FEATURED EXPERIENCE</h2>
       </div>

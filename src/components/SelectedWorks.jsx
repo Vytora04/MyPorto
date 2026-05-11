@@ -2,7 +2,7 @@ import React from 'react';
 
 const SelectedWorks = () => {
   return (
-    <section className="py-section-gap px-container-padding bg-surface scroll-mt-24" id="selected-works">
+    <section className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" id="selected-works">
       <div className="col-span-full flex justify-center mb-24">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">SELECTED WORKS</h2>
       </div>
