@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useLayoutEffect } from 'react';
 import './App.css'; // Load the custom animations and styles
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
@@ -10,6 +10,22 @@ import SelectedWorks from './components/SelectedWorks';
 import Footer from './components/Footer';
 
 function App() {
+  useLayoutEffect(() => {
+    if ('scrollRestoration' in window.history) {
+      window.history.scrollRestoration = 'manual';
+    }
+
+    window.scrollTo(0, 0);
+
+    if (window.location.hash) {
+      window.history.replaceState(
+        null,
+        '',
+        `${window.location.pathname}${window.location.search}`
+      );
+    }
+  }, []);
+
   useEffect(() => {
     const revealObserver = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
