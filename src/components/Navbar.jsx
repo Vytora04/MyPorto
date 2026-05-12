@@ -32,7 +32,7 @@ const Navbar = () => {
   return (
     <div className="fixed top-0 left-0 w-full z-[200] flex flex-col pointer-events-none">
       {/* Top safety gap filler - keeps content from peeking above the floating nav */}
-      <div className="h-6 w-full bg-background/95 backdrop-blur-sm pointer-events-none"></div>
+      <div className="h-6 w-full bg-background pointer-events-none"></div>
       
       <div className="flex justify-center px-6 pointer-events-none">
         <nav className="glass-card w-full max-w-5xl h-16 flex items-center justify-between px-8 rounded-full border border-white/50 shadow-2xl pointer-events-auto relative overflow-hidden">
@@ -46,7 +46,7 @@ const Navbar = () => {
         <div className="flex items-center gap-4">
           
           {/* Sliding Menu (Hidden by default) */}
-          <div className={`absolute inset-0 bg-white/95 backdrop-blur-md flex items-center justify-center gap-10 transition-all duration-500 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
+          <div className={`absolute inset-0 bg-white flex items-center justify-center gap-10 transition-all duration-500 ${open ? 'translate-x-0' : 'translate-x-full'}`}>
              {navLinks.map((link, index) => (
               <a
                 key={link.href}

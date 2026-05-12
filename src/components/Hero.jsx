@@ -63,13 +63,16 @@ const Hero = () => {
         <TickerTape typingDone={typingDone} />
       </div>
 
-      <a 
+      <button 
         className={`absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-all duration-500 animate-bounce ${isAtTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`} 
-        href="#the-narrative"
+        onClick={(e) => {
+          e.preventDefault();
+          document.getElementById('the-narrative')?.scrollIntoView({ behavior: 'smooth' });
+        }}
       >
         <span className="font-label-caps text-on-surface-variant group-hover:text-primary transition-colors">SCROLL</span>
         <span className="material-symbols-outlined text-primary">keyboard_arrow_down</span>
-      </a>
+      </button>
     </section>
   );
 };

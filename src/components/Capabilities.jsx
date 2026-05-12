@@ -44,11 +44,23 @@ const LanguageBar = ({ name, level, levelText, colorClass, percentage }) => (
 
 const DustBunny = () => {
   const [pupilPos, setPupilPos] = useState({ x: 0, y: 0 });
-  const [isJumping, setIsJumping] = useState(false);
+  const [mood, setMood] = useState('neutral'); // neutral, happy, dizzy, surprised, sleepy
   const [sparkles, setSparkles] = useState([]);
+  const [clickCount, setClickCount] = useState(0);
   const containerRef = useRef(null);
+  const idleTimer = useRef(null);
+  const clickTimer = useRef(null);
+
+  const resetIdleTimer = () => {
+    if (idleTimer.current) clearTimeout(idleTimer.current);
+    if (mood === 'sleepy') setMood('neutral');
+    idleTimer.current = setTimeout(() => {
+      setMood('sleepy');
+    }, 8000);
+  };
 
   const handleMouseMove = (e) => {
+    resetIdleTimer();
     if (!containerRef.current) return;
     const rect = containerRef.current.getBoundingClientRect();
     const centerX = rect.left + rect.width / 2;
@@ -65,9 +77,33 @@ const DustBunny = () => {
     });
   };
 
-  const handleClick = (e) => {
-    if (isJumping) return;
-    setIsJumping(true);
+  const handleMouseEnter = () => {
+    resetIdleTimer();
+    if (mood === 'neutral' || mood === 'sleepy') {
+      setMood('surprised');
+      setTimeout(() => setMood(prev => prev === 'surprised' ? 'neutral' : prev), 600);
+    }
+  };
+
+  const handleClick = () => {
+    resetIdleTimer();
+    
+    const newCount = clickCount + 1;
+    setClickCount(newCount);
+    
+    if (clickTimer.current) clearTimeout(clickTimer.current);
+    clickTimer.current = setTimeout(() => setClickCount(0), 1000);
+
+    if (newCount >= 4) {
+      setMood('dizzy');
+      setTimeout(() => {
+        setMood('neutral');
+        setClickCount(0);
+      }, 2000);
+      return;
+    }
+
+    setMood('happy');
     
     // Add sparkles
     const newSparkles = Array.from({ length: 5 }).map((_, i) => ({
@@ -77,15 +113,34 @@ const DustBunny = () => {
     }));
     setSparkles(prev => [...prev, ...newSparkles]);
 
-    // Reset jump and remove sparkles
-    setTimeout(() => setIsJumping(false), 500);
+    // Reset mood and remove sparkles
+    setTimeout(() => setMood(prev => prev === 'happy' ? 'neutral' : prev), 800);
     setTimeout(() => setSparkles(prev => prev.filter(s => !newSparkles.includes(s))), 800);
+  };
+
+  useEffect(() => {
+    resetIdleTimer();
+    return () => {
+      if (idleTimer.current) clearTimeout(idleTimer.current);
+      if (clickTimer.current) clearTimeout(clickTimer.current);
+    };
+  }, []);
+
+  const getMoodText = () => {
+    switch (mood) {
+      case 'happy': return 'Happy! ✨';
+      case 'surprised': return 'Ooh! 😮';
+      case 'dizzy': return 'Whoaaa... 😵';
+      case 'sleepy': return 'Zzz... 😴';
+      default: return 'He likes gentle clicks! ✨';
+    }
   };
 
   return (
     <div 
       ref={containerRef}
       onMouseMove={handleMouseMove}
+      onMouseEnter={handleMouseEnter}
       onClick={handleClick}
       className="mt-8 flex flex-col items-center justify-center p-6 bg-white/30 rounded-2xl border border-white/50 relative overflow-hidden group cursor-pointer shadow-inner select-none" 
       id="pet-container"
@@ -104,22 +159,35 @@ const DustBunny = () => {
           </span>
         ))}
 
-        <div className={`soot-sprite w-16 h-16 bg-ghibli-dark rounded-full relative flex items-center justify-center z-10 transition-transform duration-300 ${isJumping ? '-translate-y-6 scale-110' : ''}`}>
+        <div className={`soot-sprite w-16 h-16 bg-ghibli-dark rounded-full relative flex items-center justify-center z-10 transition-all duration-300 
+          ${mood === 'happy' ? '-translate-y-6 scale-110' : ''} 
+          ${mood === 'dizzy' ? 'animate-bounce' : ''}`}>
+          
           <div className="absolute w-10 flex justify-between top-3">
-            <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-100 ${isJumping ? 'h-0.5 mt-2' : ''}`}>
-              <div className="w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75" 
-                   style={{ transform: `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
+            {/* Left Eye */}
+            <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-200 
+                ${mood === 'happy' ? 'h-0.5 mt-2' : ''} 
+                ${mood === 'sleepy' ? 'h-0.5 mt-2 opacity-40' : ''}
+                ${mood === 'surprised' ? 'scale-125' : ''}
+                ${mood === 'dizzy' ? 'scale-90' : ''}`}>
+              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`} 
+                   style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
             </div>
-            <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-100 ${isJumping ? 'h-0.5 mt-2' : ''}`}>
-              <div className="w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75" 
-                   style={{ transform: `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
+            {/* Right Eye */}
+            <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-200 
+                ${mood === 'happy' ? 'h-0.5 mt-2' : ''} 
+                ${mood === 'sleepy' ? 'h-0.5 mt-2 opacity-40' : ''}
+                ${mood === 'surprised' ? 'scale-125' : ''}
+                ${mood === 'dizzy' ? 'scale-90' : ''}`}>
+              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`} 
+                   style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
             </div>
           </div>
         </div>
       </div>
 
-      <p className="text-[10px] text-gray-400 mt-6 font-bold tracking-widest transition-colors group-hover:text-ghibli-green pointer-events-none">
-        {isJumping ? 'Happy! ✨' : 'He likes gentle clicks! ✨'}
+      <p className="text-[10px] text-gray-400 mt-6 font-bold tracking-widest transition-colors group-hover:text-ghibli-green pointer-events-none h-4 flex items-center justify-center uppercase">
+        {getMoodText()}
       </p>
     </div>
   );
@@ -206,11 +274,11 @@ const Capabilities = () => {
             <ul className="space-y-5">
               <AchievementItem 
                 icon="ph-fill ph-trophy" iconColor="text-ghibli-yellow" bounce
-                title="Finalist of SoCS Hackathon 2024" subtitle="BINUS & Microsoft" 
+                title="Finalist of Data Science Competition (LOGIKA UI 2025)" subtitle="FMIPA Universitas Indonesia" 
               />
               <AchievementItem 
-                icon="ph-fill ph-medal" iconColor="text-ghibli-blue" 
-                title="Participant of Hackathon 8.0 2024" subtitle="ICP Indonesia" 
+                icon="ph-fill ph-trophy" iconColor="text-ghibli-yellow" bounce
+                title="Finalist of AI4A Competition (SoCS Hackathon 2024)" subtitle="BINUS x Microsoft" 
               />
               <AchievementItem 
                 icon="ph-fill ph-certificate" iconColor="text-ghibli-green" 

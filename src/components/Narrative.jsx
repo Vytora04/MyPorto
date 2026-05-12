@@ -1,8 +1,64 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+
+const WeatherBadge = () => {
+  const [weather, setWeather] = useState({ temp: '--', icon: 'ph-cloud-sun', description: 'FETCHING...' });
+
+  useEffect(() => {
+    const fetchWeather = async () => {
+      try {
+        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current=temperature_2m,weather_code');
+        const data = await res.json();
+        
+        const code = data.current.weather_code;
+        let icon = 'ph-sun';
+        let desc = 'CLEAR';
+
+        if (code >= 1 && code <= 3) { icon = 'ph-cloud-sun'; desc = 'CLOUDY'; }
+        else if (code >= 45 && code <= 48) { icon = 'ph-cloud-fog'; desc = 'FOGGY'; }
+        else if (code >= 51 && code <= 67) { icon = 'ph-cloud-rain'; desc = 'RAIN'; }
+        else if (code >= 71 && code <= 86) { icon = 'ph-cloud-snow'; desc = 'SNOW'; }
+        else if (code >= 95) { icon = 'ph-cloud-lightning'; desc = 'STORM'; }
+
+        setWeather({
+          temp: Math.round(data.current.temperature_2m),
+          icon: icon,
+          description: desc
+        });
+      } catch (err) {
+        console.error("Weather fetch failed", err);
+      }
+    };
+
+    fetchWeather();
+    const interval = setInterval(fetchWeather, 600000); 
+    return () => clearInterval(interval);
+  }, []);
+
+  return (
+    <div className="flex items-center gap-4 bg-white/50 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/60 shadow-sm min-w-[240px] group/weather hover:border-ghibli-blue/30 transition-all h-fit self-center">
+      <div className="w-12 h-12 bg-ghibli-blue/10 rounded-xl flex items-center justify-center group-hover/weather:bg-ghibli-blue/20 transition-colors shrink-0">
+        <i className={`ph-fill ${weather.icon} text-ghibli-blue text-2xl animate-pulse`}></i>
+      </div>
+      <div className="flex flex-col flex-1">
+        <div className="flex items-center justify-between w-full mb-1.5">
+          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">
+              Weather
+          </span>
+          <span className="text-[9px] text-ghibli-blue font-black uppercase tracking-tighter bg-ghibli-blue/10 px-2.5 py-1 rounded whitespace-nowrap">
+              {weather.description}
+          </span>
+        </div>
+        <span className="text-lg font-black tracking-tight text-ghibli-dark leading-none">
+            {weather.temp}°C 
+        </span>
+      </div>
+    </div>
+  );
+};
 
 const Narrative = () => {
   return (
-    <section className="py-24 px-container-padding bg-surface relative overflow-hidden scroll-mt-24" id="the-narrative">
+    <section className="pt-16 pb-20 px-container-padding bg-surface relative overflow-hidden scroll-mt-20" id="the-narrative">
       {/* Decorative background element */}
       <div className="absolute -top-24 -left-24 w-96 h-96 bg-ghibli-green/5 rounded-full blur-3xl -z-10"></div>
       
@@ -50,22 +106,51 @@ const Narrative = () => {
           <div className="flex-1 reveal reveal-right">
             <div className="space-y-6">
               <div className="w-full px-6 py-4 bg-ghibli-blue/5 border-l-4 border-ghibli-blue text-ghibli-blue rounded-r-xl text-xl md:text-2xl font-black uppercase tracking-[0.3em] mb-10">
-                The Narrative
+                The Story
               </div>
               
               <h2 className="font-serif text-4xl md:text-5xl font-black text-ghibli-dark leading-tight">
                 Hi! My name is <span className="text-ghibli-green italic">Fahimsyach Lokanta</span>
               </h2>
               
-              <div className="glass-card p-8 border-l-4 border-l-ghibli-green relative">
+              <div className="glass-card p-8 md:p-10 border-l-4 border-l-ghibli-green relative">
                 <i className="ph-fill ph-quotes text-4xl text-ghibli-green/20 absolute top-4 right-6"></i>
-                <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                  I am a <span className="text-ghibli-dark font-bold underline decoration-ghibli-yellow/40 decoration-4 underline-offset-2">Computer Science</span> student at BINUS University,<br/>
-                  based in the vibrant city of Tangerang. 
-                </p>
-                <p className="text-gray-600 mt-6 leading-relaxed">
-                  I thrive on solving technical puzzles and collaborating in dynamic teams. My journey is driven by a proactive spirit and a deep-seated eagerness to apply my skills within innovative environments that push the boundaries of technology.
-                </p>
+                
+                {/* Text content with deeper padding */}
+                <div className="px-2 md:px-4">
+                  <p className="text-lg text-gray-700 leading-relaxed font-medium">
+                    I am a <span className="text-ghibli-dark font-bold underline decoration-ghibli-yellow/40 decoration-4 underline-offset-2">Computer Science</span> student at BINUS University.
+                  </p>
+                  <p className="text-gray-600 mt-6 leading-relaxed">
+                    I thrive on solving technical puzzles and collaborating in dynamic teams. My journey is driven by a proactive spirit and a deep-seated eagerness to apply my skills within innovative environments that push the boundaries of technology.
+                  </p>
+                </div>
+
+                {/* Info Badges Row - stays at normal card alignment */}
+                <div className="mt-10 flex items-center gap-3 flex-nowrap">
+                  {/* Cool Location Status */}
+                  <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 shadow-sm w-fit group/loc hover:border-ghibli-green/30 transition-all">
+                    <div className="relative">
+                      <div className="w-10 h-10 bg-ghibli-green/10 rounded-xl flex items-center justify-center group-hover/loc:bg-ghibli-green/20 transition-colors">
+                        <i className="ph-fill ph-map-pin-line text-ghibli-green text-xl animate-bounce"></i>
+                      </div>
+                      <div className="absolute -top-1 -right-1 w-3 h-3 bg-red-500 rounded-full border-2 border-white flex items-center justify-center">
+                          <span className="w-1 h-1 bg-white rounded-full animate-ping"></span>
+                      </div>
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">
+                          Coordinates
+                      </span>
+                      <span className="text-sm font-black tracking-tight text-ghibli-dark location-shine">
+                          KUALA LUMPUR, MALAYSIA
+                      </span>
+                    </div>
+                  </div>
+
+                  {/* Weather Badge */}
+                  <WeatherBadge />
+                </div>
               </div>
             </div>
           </div>
