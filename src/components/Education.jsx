@@ -62,7 +62,7 @@ const EducationCard = ({
 
   return (
     <div
-      className="edu-glass-card"
+      className={`edu-glass-card ${side === 'left' ? 'edu-card-left' : 'edu-card-right'}`}
       style={{ padding: '1.75rem 2rem', width: '100%' }}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
@@ -174,8 +174,43 @@ const EducationCard = ({
 };
 
 const Education = () => {
+  const [visibleCards, setVisibleCards] = React.useState({});
+  const itemRefs = React.useRef([]);
+
+  React.useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          const idx = entry.target.getAttribute('data-index');
+          setVisibleCards((prev) => ({
+            ...prev,
+            [idx]: entry.isIntersecting,
+          }));
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    itemRefs.current.forEach((ref) => {
+      if (ref) {
+        observer.observe(ref);
+      }
+    });
+
+    return () => {
+      itemRefs.current.forEach((ref) => {
+        if (ref) {
+          observer.unobserve(ref);
+        }
+      });
+    };
+  }, []);
+
   return (
-    <section className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" id="academic-history">
+    <section 
+      className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" 
+      id="academic-history"
+    >
       <div className="col-span-full flex justify-center mb-24">
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">ACADEMIC HISTORY</h2>
       </div>
@@ -198,10 +233,16 @@ const Education = () => {
 
         {educationData.map((item, idx) => {
           const isLeft = idx % 2 === 0; // UM=left, BINUS=right, PENABUR=left
+          const isCardVisible = visibleCards[idx];
 
           return (
             <div
               key={idx}
+              ref={(el) => {
+                itemRefs.current[idx] = el;
+              }}
+              data-index={idx}
+              className={`edu-item-${idx} ${isCardVisible ? 'animate-in' : ''}`}
               style={{
                 display: 'grid',
                 gridTemplateColumns: '1fr 56px 1fr',
@@ -216,15 +257,18 @@ const Education = () => {
 
               {/* Center: dot + connector tick */}
               <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '1.9rem', position: 'relative', zIndex: 1 }}>
-                <div style={{
-                  width: '16px',
-                  height: '16px',
-                  borderRadius: '50%',
-                  background: item.accent,
-                  border: '3px solid #f9f9f9',
-                  boxShadow: `0 0 0 2.5px ${item.accent}, 0 2px 8px rgba(0,0,0,0.12)`,
-                  flexShrink: 0,
-                }} />
+                <div
+                  className="timeline-dot animate-in"
+                  style={{
+                    width: '16px',
+                    height: '16px',
+                    borderRadius: '50%',
+                    background: item.accent,
+                    border: '3px solid #f9f9f9',
+                    boxShadow: `0 0 0 2.5px ${item.accent}, 0 2px 8px rgba(0,0,0,0.12)`,
+                    flexShrink: 0,
+                  }}
+                />
                 {/* Short horizontal tick toward the card */}
                 <div style={{
                   position: 'absolute',
