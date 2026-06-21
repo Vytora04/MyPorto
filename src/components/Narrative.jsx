@@ -6,26 +6,61 @@ const WeatherBadge = () => {
   useEffect(() => {
     const fetchWeather = async () => {
       try {
-        const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current=temperature_2m,weather_code');
+        // Try wttr.in first for real-time human-readable description
+        const res = await fetch('https://wttr.in/Kuala+Lumpur?format=j1');
         const data = await res.json();
+        const current = data.current_condition[0];
+        const temp = Math.round(parseFloat(current.temp_C));
+        const descText = current.weatherDesc[0].value.toUpperCase().trim();
         
-        const code = data.current.weather_code;
         let icon = 'ph-sun';
-        let desc = 'CLEAR';
-
-        if (code >= 1 && code <= 3) { icon = 'ph-cloud-sun'; desc = 'CLOUDY'; }
-        else if (code >= 45 && code <= 48) { icon = 'ph-cloud-fog'; desc = 'FOGGY'; }
-        else if (code >= 51 && code <= 67) { icon = 'ph-cloud-rain'; desc = 'RAIN'; }
-        else if (code >= 71 && code <= 86) { icon = 'ph-cloud-snow'; desc = 'SNOW'; }
-        else if (code >= 95) { icon = 'ph-cloud-lightning'; desc = 'STORM'; }
-
+        let desc = descText;
+        
+        if (descText.includes('SUNNY') || descText.includes('CLEAR')) {
+          icon = 'ph-sun';
+        } else if (descText.includes('CLOUDY') || descText.includes('OVERCAST')) {
+          icon = 'ph-cloud-sun';
+        } else if (descText.includes('RAIN') || descText.includes('DRIZZLE') || descText.includes('SHOWER')) {
+          icon = 'ph-cloud-rain';
+        } else if (descText.includes('FOG') || descText.includes('MIST')) {
+          icon = 'ph-cloud-fog';
+        } else if (descText.includes('SNOW')) {
+          icon = 'ph-cloud-snow';
+        } else if (descText.includes('THUNDER') || descText.includes('STORM')) {
+          icon = 'ph-cloud-lightning';
+        }
+        
         setWeather({
-          temp: Math.round(data.current.temperature_2m),
+          temp: temp,
           icon: icon,
           description: desc
         });
       } catch (err) {
-        console.error("Weather fetch failed", err);
+        console.warn("wttr.in failed, falling back to open-meteo:", err);
+        // Fallback to open-meteo
+        try {
+          const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current=temperature_2m,weather_code');
+          const data = await res.json();
+          const code = data.current.weather_code;
+          let icon = 'ph-sun';
+          let desc = 'CLEAR';
+
+          if (code === 0) { icon = 'ph-sun'; desc = 'SUNNY'; }
+          else if (code >= 1 && code <= 3) { icon = 'ph-cloud-sun'; desc = 'CLOUDY'; }
+          else if (code >= 45 && code <= 48) { icon = 'ph-cloud-fog'; desc = 'FOGGY'; }
+          else if (code >= 51 && code <= 55) { icon = 'ph-cloud-rain'; desc = 'DRIZZLE'; }
+          else if (code >= 56 && code <= 67) { icon = 'ph-cloud-rain'; desc = 'RAIN'; }
+          else if (code >= 71 && code <= 86) { icon = 'ph-cloud-snow'; desc = 'SNOW'; }
+          else if (code >= 95) { icon = 'ph-cloud-lightning'; desc = 'STORM'; }
+
+          setWeather({
+            temp: Math.round(data.current.temperature_2m),
+            icon: icon,
+            description: desc
+          });
+        } catch (fallbackErr) {
+          console.error("All weather fetches failed", fallbackErr);
+        }
       }
     };
 

@@ -7,6 +7,41 @@ const SelectedWorks = () => {
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">SELECTED WORKS</h2>
       </div>
       <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+        {/* Highlighted Card */}
+        <div className="md:col-span-3 bg-surface-container-lowest border-2 border-academic-sage/50 flex flex-col md:flex-row rounded-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 reveal reveal-up p-8 gap-8 items-center justify-between">
+          <div className="flex-1">
+            <div className="flex items-center gap-2 mb-3">
+              <span className="px-3 py-1 bg-academic-sage text-white text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1">
+                <span className="material-symbols-outlined text-[14px]">menu_book</span> Highlighted Publication
+              </span>
+              <span className="text-xs text-academic-sage font-bold uppercase tracking-wide">IEEE ICoDSE 2025</span>
+            </div>
+            <h3 className="font-serif text-xl md:text-2xl font-bold text-ghibli-dark tracking-tight mb-2 leading-tight">
+              Optimizing Differential Privacy for Effective Machine Learning-Based Financial Fraud Detection
+            </h3>
+            <p className="text-xs text-gray-500 font-medium mb-3">
+              By <span className="font-bold text-gray-700">Kevin Fujianto</span>, <span className="font-bold text-academic-sage underline decoration-wavy">Fahimsyach Lokanta</span>, <span className="font-bold text-gray-700">Henry Lucky</span>, and <span className="font-bold text-gray-700">Derwin Suhartono</span>
+            </p>
+            <p className="font-body-md text-on-surface-variant text-sm leading-relaxed max-w-4xl">
+              Optimizes differential privacy (DP) in financial fraud detection, balancing compliance (GDPR/CCPA) with machine learning model accuracy.
+            </p>
+          </div>
+          
+          <div className="w-full md:w-auto flex flex-col gap-4 min-w-[220px] border-t md:border-t-0 md:border-l border-outline-variant pt-6 md:pt-0 md:pl-8">
+            <div className="flex flex-wrap gap-1.5 mb-2">
+              <span className="px-2.5 py-0.5 bg-purple-50 text-purple-700 border border-purple-150 text-[10px] font-bold uppercase rounded-full">Differential Privacy</span>
+              <span className="px-2.5 py-0.5 bg-blue-50 text-blue-700 border border-blue-150 text-[10px] font-bold uppercase rounded-full">Machine Learning</span>
+              <span className="px-2.5 py-0.5 bg-red-50 text-red-700 border border-red-150 text-[10px] font-bold uppercase rounded-full">Fraud Detection</span>
+            </div>
+            <a className="w-full py-2.5 px-4 bg-academic-sage hover:bg-academic-sage/90 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2" href="https://doi.org/10.1109/ICoDSE68111.2025.11351709" target="_blank" rel="noopener noreferrer">
+              <span className="material-symbols-outlined text-[16px]">menu_book</span> IEEE Xplore (DOI)
+            </a>
+            <a className="w-full py-2.5 px-4 border border-outline hover:bg-surface-container text-primary rounded-xl text-xs font-bold uppercase tracking-wider transition-all flex items-center justify-center gap-2" href="https://www.semanticscholar.org/paper/Optimizing-Differential-Privacy-for-Effective-Fraud-Fujianto-Lokanta/e5565bc8ac4131df8a8bef493e02a2f8db7306ea" target="_blank" rel="noopener noreferrer">
+              <span className="material-symbols-outlined text-[16px]">school</span> Semantic Scholar
+            </a>
+          </div>
+        </div>
+
         {/* Card 1 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           <img alt="SkillBridge" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project1.png" />

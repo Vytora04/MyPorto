@@ -11,7 +11,7 @@ const Experience = () => {
       </div>
       <div className="max-w-screen-xl mx-auto flex flex-col items-center">
         {/* ICPC Block */}
-        <div className="mb-32 w-full flex flex-col md:flex-row gap-12 items-start">
+        <div className="mb-32 w-full flex flex-col md:flex-row gap-12 items-start reveal reveal-tilt-up">
           {/* Left: Carousel */}
           <div className="w-full md:w-[45%] flex-shrink-0">
             <Carousel autoPlay images={[
@@ -35,7 +35,7 @@ const Experience = () => {
 
         {/* HIMTI BINUS Block */}
         <div className="mb-24 w-full">
-          <div className="flex flex-col md:flex-row gap-12 items-start mb-16">
+          <div className="flex flex-col md:flex-row gap-12 items-start mb-16 reveal reveal-tilt-up">
             {/* Left: Carousel */}
             <div className="w-full md:w-[45%] flex-shrink-0">
               <Carousel autoPlay images={[
@@ -63,13 +63,13 @@ const Experience = () => {
             </div>
           </div>
           
-          <h4 className="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl">HIMTI Events Highlights</h4>
+          <h4 className="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl reveal reveal-up">HIMTI Events Highlights</h4>
           
           {/* Spotlight Events Timeline */}
           <div className="flex flex-col gap-0 mb-12 relative border-outline-variant ml-6">
             
             {/* Role 1 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
               <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
                 <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
@@ -93,7 +93,7 @@ const Experience = () => {
             </div>
 
             {/* Role 2 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
               <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
                 <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
@@ -117,7 +117,7 @@ const Experience = () => {
             </div>
 
             {/* Role 3 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
               <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
                 <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
@@ -141,7 +141,7 @@ const Experience = () => {
             </div>
 
             {/* Role 4 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
               <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
                 <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
@@ -165,7 +165,7 @@ const Experience = () => {
             </div>
 
             {/* Role 5 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0">
+            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
               <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
                 <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
