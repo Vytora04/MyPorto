@@ -138,6 +138,7 @@ const WeatherBadge = ({ location }) => {
 
 const Narrative = () => {
   const [activeLocation, setActiveLocation] = useState(getActiveLocation);
+  const [isFlipped, setIsFlipped] = useState(false);
 
   useEffect(() => {
     const checkSchedule = () => {
@@ -157,13 +158,17 @@ const Narrative = () => {
       <div className="max-w-[1100px] mx-auto">
         <div className="flex flex-col md:flex-row items-center gap-16">
           
-          {/* Left: Image with interactive flip on hover */}
+          {/* Left: Image with interactive flip on hover (desktop) or tap (mobile) */}
           <div className="w-full md:w-[40%] reveal reveal-left flex-shrink-0">
-            <div className="relative group perspective-1000">
-              <div className="absolute inset-0 bg-ghibli-green/20 rounded-[2rem] rotate-3 group-hover:rotate-6 transition-transform -z-10"></div>
+            <div
+              className="relative group perspective-1000 cursor-pointer"
+              onClick={() => setIsFlipped((prev) => !prev)}
+              title="Tap or hover to flip photo"
+            >
+              <div className={`absolute inset-0 bg-ghibli-green/20 rounded-[2rem] transition-transform -z-10 ${isFlipped ? 'rotate-6' : 'rotate-3 group-hover:rotate-6'}`}></div>
               
               {/* Flip Card Container */}
-              <div className="relative transition-all duration-700 preserve-3d group-hover:[transform:rotateY(180deg)]">
+              <div className={`relative transition-all duration-700 preserve-3d ${isFlipped ? '[transform:rotateY(180deg)]' : 'group-hover:[transform:rotateY(180deg)]'}`}>
                 {/* Front Image */}
                 <div className="w-full aspect-[4/5] [backface-visibility:hidden]">
                   <img 
@@ -186,12 +191,12 @@ const Narrative = () => {
                 </div>
               </div>
 
-              {/* Status Badge - Dynamic Text on Hover */}
+              {/* Status Badge - Dynamic Text on Hover or Tap */}
               <div className="absolute -bottom-4 -right-4 bg-white px-4 py-2 rounded-full shadow-lg border border-gray-100 flex items-center gap-2 z-20">
                 <span className="w-2 h-2 bg-ghibli-green rounded-full animate-pulse"></span>
                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest min-w-[140px] text-center">
-                  <span className="group-hover:hidden">Available for Internship</span>
-                  <span className="hidden group-hover:inline">Whoa! Surprise!</span>
+                  <span className={isFlipped ? 'hidden' : 'group-hover:hidden'}>Available for Internship</span>
+                  <span className={isFlipped ? 'inline' : 'hidden group-hover:inline'}>Whoa! Surprise!</span>
                 </span>
               </div>
             </div>
