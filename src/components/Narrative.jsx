@@ -1,13 +1,51 @@
-import React, { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 
-const WeatherBadge = () => {
+const LOCATIONS = {
+  JAKARTA: {
+    key: 'JAKARTA',
+    label: 'JAKARTA, INDONESIA',
+    wttrQuery: 'Jakarta',
+    lat: -6.2088,
+    lon: 106.8456,
+  },
+  TANGERANG: {
+    key: 'TANGERANG',
+    label: 'TANGERANG, INDONESIA',
+    wttrQuery: 'Tangerang',
+    lat: -6.1783,
+    lon: 106.6319,
+  },
+};
+
+const getActiveLocation = () => {
+  const now = new Date();
+  const parts = new Intl.DateTimeFormat('en-US', {
+    timeZone: 'Asia/Jakarta',
+    weekday: 'short',
+    hour: 'numeric',
+    hour12: false,
+  }).formatToParts(now);
+
+  const weekday = parts.find((p) => p.type === 'weekday')?.value;
+  const hourStr = parts.find((p) => p.type === 'hour')?.value;
+  const hour = parseInt(hourStr, 10) % 24;
+
+  const isWeekday = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri'].includes(weekday);
+  const isWorkHours = hour >= 8 && hour < 18;
+
+  return isWeekday && isWorkHours ? LOCATIONS.JAKARTA : LOCATIONS.TANGERANG;
+};
+
+const WeatherBadge = ({ location }) => {
   const [weather, setWeather] = useState({ temp: '--', icon: 'ph-cloud-sun', description: 'FETCHING...' });
 
   useEffect(() => {
+    let isMounted = true;
+
     const fetchWeather = async () => {
       try {
         // Try wttr.in first for real-time human-readable description
-        const res = await fetch('https://wttr.in/Kuala+Lumpur?format=j1');
+        const res = await fetch(`https://wttr.in/${encodeURIComponent(location.wttrQuery)}?format=j1`);
         const data = await res.json();
         const current = data.current_condition[0];
         const temp = Math.round(parseFloat(current.temp_C));
@@ -30,16 +68,18 @@ const WeatherBadge = () => {
           icon = 'ph-cloud-lightning';
         }
         
-        setWeather({
-          temp: temp,
-          icon: icon,
-          description: desc
-        });
+        if (isMounted) {
+          setWeather({
+            temp: temp,
+            icon: icon,
+            description: desc
+          });
+        }
       } catch (err) {
         console.warn("wttr.in failed, falling back to open-meteo:", err);
         // Fallback to open-meteo
         try {
-          const res = await fetch('https://api.open-meteo.com/v1/forecast?latitude=3.1390&longitude=101.6869&current=temperature_2m,weather_code');
+          const res = await fetch(`https://api.open-meteo.com/v1/forecast?latitude=${location.lat}&longitude=${location.lon}&current=temperature_2m,weather_code`);
           const data = await res.json();
           const code = data.current.weather_code;
           let icon = 'ph-sun';
@@ -53,11 +93,13 @@ const WeatherBadge = () => {
           else if (code >= 71 && code <= 86) { icon = 'ph-cloud-snow'; desc = 'SNOW'; }
           else if (code >= 95) { icon = 'ph-cloud-lightning'; desc = 'STORM'; }
 
-          setWeather({
-            temp: Math.round(data.current.temperature_2m),
-            icon: icon,
-            description: desc
-          });
+          if (isMounted) {
+            setWeather({
+              temp: Math.round(data.current.temperature_2m),
+              icon: icon,
+              description: desc
+            });
+          }
         } catch (fallbackErr) {
           console.error("All weather fetches failed", fallbackErr);
         }
@@ -66,24 +108,27 @@ const WeatherBadge = () => {
 
     fetchWeather();
     const interval = setInterval(fetchWeather, 600000); 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      isMounted = false;
+      clearInterval(interval);
+    };
+  }, [location]);
 
   return (
-    <div className="flex items-center gap-4 bg-white/50 backdrop-blur-sm px-6 py-4 rounded-2xl border border-white/60 shadow-sm min-w-[240px] group/weather hover:border-ghibli-blue/30 transition-all h-fit self-center">
-      <div className="w-12 h-12 bg-ghibli-blue/10 rounded-xl flex items-center justify-center group-hover/weather:bg-ghibli-blue/20 transition-colors shrink-0">
-        <i className={`ph-fill ${weather.icon} text-ghibli-blue text-2xl animate-pulse`}></i>
+    <div className="flex items-center gap-3.5 bg-white/50 backdrop-blur-sm px-4 py-3 rounded-2xl border border-white/60 shadow-sm w-fit group/weather hover:border-ghibli-blue/30 transition-all">
+      <div className="w-10 h-10 bg-ghibli-blue/10 rounded-xl flex items-center justify-center group-hover/weather:bg-ghibli-blue/20 transition-colors shrink-0">
+        <i className={`ph-fill ${weather.icon} text-ghibli-blue text-xl animate-pulse`}></i>
       </div>
-      <div className="flex flex-col flex-1">
-        <div className="flex items-center justify-between w-full mb-1.5">
-          <span className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">
+      <div className="flex flex-col justify-center">
+        <div className="flex items-center justify-between gap-3 w-full mb-1">
+          <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">
               Weather
           </span>
-          <span className="text-[9px] text-ghibli-blue font-black uppercase tracking-tighter bg-ghibli-blue/10 px-2.5 py-1 rounded whitespace-nowrap">
+          <span className="text-[9px] text-ghibli-blue font-black uppercase tracking-tighter bg-ghibli-blue/10 px-2 py-0.5 rounded whitespace-nowrap leading-none">
               {weather.description}
           </span>
         </div>
-        <span className="text-lg font-black tracking-tight text-ghibli-dark leading-none">
+        <span className="text-sm font-black tracking-tight text-ghibli-dark leading-none">
             {weather.temp}°C 
         </span>
       </div>
@@ -92,6 +137,18 @@ const WeatherBadge = () => {
 };
 
 const Narrative = () => {
+  const [activeLocation, setActiveLocation] = useState(getActiveLocation);
+
+  useEffect(() => {
+    const checkSchedule = () => {
+      const nextLoc = getActiveLocation();
+      setActiveLocation((prev) => (prev.key === nextLoc.key ? prev : nextLoc));
+    };
+
+    const timer = setInterval(checkSchedule, 60000);
+    return () => clearInterval(timer);
+  }, []);
+
   return (
     <section className="pt-16 pb-20 px-container-padding bg-surface relative overflow-hidden scroll-mt-20" id="the-narrative">
       {/* Decorative background element */}
@@ -113,6 +170,7 @@ const Narrative = () => {
                     alt="Fahimsyach Lokanta - Primary" 
                     className="w-full h-full object-cover rounded-[2rem] border-2 border-white shadow-xl" 
                     src="/images/introduction.jpg" 
+                    decoding="async"
                   />
                 </div>
                 
@@ -122,6 +180,8 @@ const Narrative = () => {
                     alt="Fahimsyach Lokanta - Secondary" 
                     className="w-full h-full object-cover rounded-[2rem] border-2 border-white shadow-xl" 
                     src="/images/introduction2.jpeg" 
+                    loading="lazy"
+                    decoding="async"
                   />
                 </div>
               </div>
@@ -161,11 +221,11 @@ const Narrative = () => {
                   </p>
                 </div>
 
-                {/* Info Badges Row - stays at normal card alignment */}
-                <div className="mt-10 flex items-center gap-3 flex-nowrap">
+                {/* Info Badges Row - stays in 1 row on tablet/desktop with equal height */}
+                <div className="mt-10 flex flex-col sm:flex-row items-stretch gap-3 sm:flex-nowrap">
                   {/* Cool Location Status */}
-                  <div className="flex items-center gap-3 bg-white/50 backdrop-blur-sm p-3 rounded-2xl border border-white/60 shadow-sm w-fit group/loc hover:border-ghibli-green/30 transition-all">
-                    <div className="relative">
+                  <div className="flex items-center gap-3.5 bg-white/50 backdrop-blur-sm px-4 py-3 rounded-2xl border border-white/60 shadow-sm w-fit group/loc hover:border-ghibli-green/30 transition-all">
+                    <div className="relative shrink-0">
                       <div className="w-10 h-10 bg-ghibli-green/10 rounded-xl flex items-center justify-center group-hover/loc:bg-ghibli-green/20 transition-colors">
                         <i className="ph-fill ph-map-pin-line text-ghibli-green text-xl animate-bounce"></i>
                       </div>
@@ -173,18 +233,18 @@ const Narrative = () => {
                           <span className="w-1 h-1 bg-white rounded-full animate-ping"></span>
                       </div>
                     </div>
-                    <div className="flex flex-col">
-                      <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1">
+                    <div className="flex flex-col justify-center">
+                      <span className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none mb-1.5">
                           Coordinates
                       </span>
-                      <span className="text-sm font-black tracking-tight text-ghibli-dark location-shine">
-                          KUALA LUMPUR, MALAYSIA
+                      <span className="text-sm font-black tracking-tight text-ghibli-dark location-shine whitespace-nowrap leading-none">
+                          {activeLocation.label}
                       </span>
                     </div>
                   </div>
 
                   {/* Weather Badge */}
-                  <WeatherBadge />
+                  <WeatherBadge location={activeLocation} />
                 </div>
               </div>
             </div>

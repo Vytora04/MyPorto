@@ -3,14 +3,14 @@ import React from 'react';
 const SelectedWorks = () => {
   return (
     <section className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" id="selected-works">
-      <div className="col-span-full flex justify-center mb-24">
-        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">SELECTED WORKS</h2>
+      <div className="col-span-full flex justify-center mb-12 md:mb-24">
+        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[clamp(2rem,6vw,5.5rem)]">SELECTED WORKS</h2>
       </div>
-      <div className="max-w-screen-xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
+      <div className="max-w-screen-xl mx-auto grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
         {/* Highlighted Card */}
-        <div className="md:col-span-3 bg-surface-container-lowest border-2 border-academic-sage/50 flex flex-col md:flex-row rounded-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 reveal reveal-up p-8 gap-8 items-center justify-between">
+        <div className="sm:col-span-2 lg:col-span-3 bg-surface-container-lowest border-2 border-academic-sage/50 flex flex-col md:flex-row rounded-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 reveal reveal-up p-6 sm:p-8 gap-6 md:gap-8 items-start md:items-center justify-between">
           <div className="flex-1">
-            <div className="flex items-center gap-2 mb-3">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
               <span className="px-3 py-1 bg-academic-sage text-white text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1">
                 <span className="material-symbols-outlined text-[14px]">menu_book</span> Highlighted Publication
               </span>
@@ -26,12 +26,12 @@ const SelectedWorks = () => {
               Optimizes differential privacy (DP) in financial fraud detection, balancing compliance (GDPR/CCPA) with machine learning model accuracy.
             </p>
           </div>
-          
-          <div className="w-full md:w-auto flex flex-col gap-4 min-w-[220px] border-t md:border-t-0 md:border-l border-outline-variant pt-6 md:pt-0 md:pl-8">
-            <div className="flex flex-wrap gap-1.5 mb-2">
-              <span className="px-2.5 py-0.5 bg-purple-50 text-purple-700 border border-purple-150 text-[10px] font-bold uppercase rounded-full">Differential Privacy</span>
-              <span className="px-2.5 py-0.5 bg-blue-50 text-blue-700 border border-blue-150 text-[10px] font-bold uppercase rounded-full">Machine Learning</span>
-              <span className="px-2.5 py-0.5 bg-red-50 text-red-700 border border-red-150 text-[10px] font-bold uppercase rounded-full">Fraud Detection</span>
+
+          <div className="w-full md:w-auto flex flex-col gap-3 md:gap-4 min-w-[220px] border-t md:border-t-0 md:border-l border-outline-variant pt-5 md:pt-0 md:pl-8">
+            <div className="flex flex-wrap gap-1.5 mb-1">
+              <span className="px-2.5 py-0.5 bg-purple-50 text-purple-700 border border-purple-200 text-[10px] font-bold uppercase rounded-full">Differential Privacy</span>
+              <span className="px-2.5 py-0.5 bg-blue-50 text-blue-700 border border-blue-200 text-[10px] font-bold uppercase rounded-full">Machine Learning</span>
+              <span className="px-2.5 py-0.5 bg-red-50 text-red-700 border border-red-200 text-[10px] font-bold uppercase rounded-full">Fraud Detection</span>
             </div>
             <a className="w-full py-2.5 px-4 bg-academic-sage hover:bg-academic-sage/90 text-white rounded-xl text-xs font-bold uppercase tracking-wider transition-all shadow-sm hover:shadow-md flex items-center justify-center gap-2" href="https://doi.org/10.1109/ICoDSE68111.2025.11351709" target="_blank" rel="noopener noreferrer">
               <span className="material-symbols-outlined text-[16px]">menu_book</span> IEEE Xplore (DOI)
@@ -44,7 +44,7 @@ const SelectedWorks = () => {
 
         {/* Card 1 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
-          <img alt="SkillBridge" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project1.png" />
+          <img alt="SkillBridge" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project1.png" loading="lazy" decoding="async" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SkillBridge</h3>
             <p className="font-body-md text-on-surface-variant mb-6 flex-grow">Connect with non-profits to share skills, collaborate on projects, and match talent with meaningful opportunities.</p>
@@ -56,7 +56,7 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">JavaScript</span>
               <span className="px-3 py-1 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold uppercase rounded-full">MySQL</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/SkillBridge" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://binusianorg-my.sharepoint.com/personal/fahimsyach_lokanta_binus_ac_id/_layouts/15/guestaccess.aspx?share=IQA86RsyaWxGQ5JCEgeKMWVYAY4mWfxKqwDG9uzMJV0TfP4&e=bRsMUX" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">description</span> DOCUMENTATION</a>
             </div>
@@ -64,7 +64,7 @@ const SelectedWorks = () => {
         </div>
         {/* Card 2 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
-          <img alt="SMARTNEWSSUMM" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project2.png" />
+          <img alt="SMARTNEWSSUMM" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project2.png" loading="lazy" decoding="async" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SMARTNEWSSUMM</h3>
             <p className="font-body-md text-on-surface-variant mb-6 flex-grow">Generates clear, concise news summaries using a hybrid approach with retrieval support to ensure context and accuracy.</p>
@@ -76,13 +76,12 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-blue-100 text-blue-800 border border-blue-200 text-xs font-bold uppercase rounded-full">TRANSFORMERS</span>
               <span className="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">PEFT (LORA)</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/SmartNewsSumm" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://binusianorg-my.sharepoint.com/personal/fahimsyach_lokanta_binus_ac_id/_layouts/15/guestaccess.aspx?share=IQCM72BQs4xqTrzePGOfhhdZAfqCaFIzXzScqQRRTIeExEk&e=nmeg7h" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">description</span> DOCUMENTATION</a>
             </div>
           </div>
         </div>
-        {/* Card 3 */}
         {/* Card 3 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
           {/* image coming soon */}
@@ -98,14 +97,14 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">SHARED PREFERENCES</span>
               <span className="px-3 py-1 bg-cyan-100 text-cyan-800 border border-cyan-200 text-xs font-bold uppercase rounded-full">GOOGLE FONTS</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/QuizOn" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
             </div>
           </div>
         </div>
         {/* Card 4 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
-          <img alt="DIAGNOSIFY" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project4.png" />
+          <img alt="DIAGNOSIFY" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project4.png" loading="lazy" decoding="async" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">DIAGNOSIFY</h3>
             <p className="font-body-md text-on-surface-variant mb-6 flex-grow">Enables disease risk prediction using trained machine-learning models, with support for uploading custom datasets.</p>
@@ -117,7 +116,7 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">PYTHON</span>
               <span className="px-3 py-1 bg-gray-100 text-gray-800 border border-gray-200 text-xs font-bold uppercase rounded-full">FLASK</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/Diagnosify" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://diagnosify-inky.vercel.app" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO (FRONTEND only)</a>
             </div>
@@ -125,7 +124,7 @@ const SelectedWorks = () => {
         </div>
         {/* Card 5 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
-          <img alt="LAPORCERDAS" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project5.png" />
+          <img alt="LAPORCERDAS" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project5.png" loading="lazy" decoding="async" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">LAPORCERDAS</h3>
             <p className="font-body-md text-on-surface-variant mb-6 flex-grow">Community reporting app to submit public-service complaints, track report status, view history, and provide feedback.</p>
@@ -137,7 +136,7 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-orange-100 text-orange-800 border border-orange-200 text-xs font-bold uppercase rounded-full">JUPYTER / COLAB</span>
               <span className="px-3 py-1 bg-purple-100 text-purple-800 border border-purple-200 text-xs font-bold uppercase rounded-full">FIGMA</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/LaporCerdas" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://vytora04.github.io/LaporCerdas/" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">open_in_new</span> LIVE DEMO (Frontend Only)</a>
             </div>
@@ -145,7 +144,7 @@ const SelectedWorks = () => {
         </div>
         {/* Card 6 */}
         <div className="bg-surface-container-lowest border border-outline-variant flex flex-col rounded-b-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal reveal-up">
-          <img alt="SIGMARIZZ" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project6.jpg" />
+          <img alt="SIGMARIZZ" className="w-full aspect-video object-cover border-b border-outline-variant" src="/images/project/project6.jpg" loading="lazy" decoding="async" />
           <div className="p-6 flex flex-col flex-grow">
             <h3 className="font-bold text-primary uppercase tracking-tight mb-2">SIGMARIZZ</h3>
             <p className="font-body-md text-on-surface-variant mb-6 flex-grow">Library database project focusing on schema design, SQL queries, and core DBMS concepts like indexing and optimization.</p>
@@ -157,7 +156,7 @@ const SelectedWorks = () => {
               <span className="px-3 py-1 bg-orange-100 text-orange-800 border border-orange-200 text-xs font-bold uppercase rounded-full">ERD / DIAGRAMS</span>
               <span className="px-3 py-1 bg-yellow-100 text-yellow-800 border border-yellow-200 text-xs font-bold uppercase rounded-full">DRAW.IO</span>
             </div>
-            <div className="flex gap-4 pt-4 border-t border-outline-variant">
+            <div className="flex flex-wrap gap-4 pt-4 border-t border-outline-variant">
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://github.com/Vytora04/SigmaRizz" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">code</span> CODE</a>
               <a className="flex items-center gap-1 text-sm font-bold uppercase text-primary hover:text-outline transition-colors" href="https://vytora.notion.site/sigmarizz-dba?pvs=74" target="_blank" rel="noopener noreferrer"><span className="material-symbols-outlined text-[18px]">description</span> DOCUMENTATION</a>
             </div>

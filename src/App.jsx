@@ -28,19 +28,19 @@ function App() {
 
   useEffect(() => {
     const revealObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                entry.target.classList.add('active');
-                entry.target.classList.add('is-visible');
-                const index = Array.from(entry.target.parentElement?.children || []).indexOf(entry.target);
-                entry.target.style.transitionDelay = `${index * 0.2}s`;
-            } else {
-                entry.target.classList.remove('active');
-                entry.target.classList.remove('is-visible');
-                entry.target.style.transitionDelay = '0s';
-            }
-        });
-    }, { threshold: 0.15 });
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('active');
+          entry.target.classList.add('is-visible');
+          const index = Array.from(entry.target.parentElement?.children || []).indexOf(entry.target);
+          entry.target.style.transitionDelay = `${Math.min(index * 0.15, 0.45)}s`;
+        } else {
+          entry.target.classList.remove('active');
+          entry.target.classList.remove('is-visible');
+          entry.target.style.transitionDelay = '0s';
+        }
+      });
+    }, { threshold: 0.12 });
 
     const revealElements = document.querySelectorAll('.reveal, .reveal-text');
     revealElements.forEach(el => revealObserver.observe(el));
@@ -50,7 +50,7 @@ function App() {
     const titleElements = document.querySelectorAll('.title-hover-effect');
 
     const handleScroll = () => {
-      const viewportMid = window.innerHeight * 0.5;
+      const viewportMid = window.innerHeight * 0.55;
       titleElements.forEach(el => {
         const rect = el.getBoundingClientRect();
         if (rect.top < viewportMid) {
@@ -71,9 +71,9 @@ function App() {
   }, []);
 
   return (
-    <div className="bg-background text-on-background min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container">
+    <div className="bg-background text-on-background min-h-screen antialiased selection:bg-secondary-container selection:text-on-secondary-container overflow-x-clip">
       <Navbar />
-      <main className="pt-[80px]">
+      <main className="pt-[72px] md:pt-[80px]">
         <Hero />
         <Narrative />
         <Experience />

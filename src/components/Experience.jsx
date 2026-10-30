@@ -6,12 +6,12 @@ const Experience = () => {
 
   return (
     <section className="pt-8 pb-section-gap px-container-padding scroll-mt-24" id="featured-experience">
-      <div className="col-span-full flex justify-center mb-24 w-full">
-        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">FEATURED EXPERIENCE</h2>
+      <div className="col-span-full flex justify-center mb-12 md:mb-24 w-full">
+        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[clamp(2rem,6vw,5.5rem)]">FEATURED EXPERIENCE</h2>
       </div>
       <div className="max-w-screen-xl mx-auto flex flex-col items-center">
         {/* ICPC Block */}
-        <div className="mb-32 w-full flex flex-col md:flex-row gap-12 items-start reveal reveal-tilt-up">
+        <div className="mb-16 md:mb-32 w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start reveal reveal-tilt-up">
           {/* Left: Carousel */}
           <div className="w-full md:w-[45%] flex-shrink-0">
             <Carousel autoPlay images={[
@@ -21,11 +21,11 @@ const Experience = () => {
             ]} />
           </div>
           {/* Right: Text */}
-          <div className="flex-1 flex flex-col justify-center">
-            <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary mb-8 pb-8 border-b border-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">ICPC (International Collegiate Programming Contest)</h3>
-            <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2">Registration Staff</h4>
-            <p className="font-label-caps text-on-surface-variant mb-6 uppercase">October 2024 - December 2024</p>
-            <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
+          <div className="flex-1 flex flex-col justify-center w-full">
+            <h3 className="font-black leading-[0.95] tracking-tighter uppercase text-primary mb-6 md:mb-8 pb-6 md:pb-8 border-b border-primary text-[clamp(1.4rem,2.8vw,2.5rem)]">ICPC (International Collegiate Programming Contest)</h3>
+            <h4 className="font-bold text-black text-xl md:text-2xl uppercase tracking-tight mb-2">Registration Staff</h4>
+            <p className="font-label-caps text-on-surface-variant mb-4 md:mb-6 uppercase">October 2024 - December 2024</p>
+            <ul className="list-disc pl-5 text-base md:text-[17.5px] leading-relaxed text-on-surface-variant space-y-2">
               <li>Successfully facilitated the registration for 500+ student and faculty teams, ensuring a smooth registration process for the INC 2024 competition.</li>
               <li>Provided direct on-site operational support, ensuring positive experience for Asia Pacific participants.</li>
               <li>Coordinated with team for seamless operations for 100+ participants during ICPC competition.</li>
@@ -34,8 +34,8 @@ const Experience = () => {
         </div>
 
         {/* HIMTI BINUS Block */}
-        <div className="mb-24 w-full">
-          <div className="flex flex-col md:flex-row gap-12 items-start mb-16 reveal reveal-tilt-up">
+        <div className="mb-16 md:mb-24 w-full">
+          <div className="flex flex-col md:flex-row gap-6 md:gap-12 items-start mb-12 md:mb-16 reveal reveal-tilt-up">
             {/* Left: Carousel */}
             <div className="w-full md:w-[45%] flex-shrink-0">
               <Carousel autoPlay images={[
@@ -48,37 +48,37 @@ const Experience = () => {
               ]} />
             </div>
             {/* Right: Text */}
-            <div className="flex-1 flex flex-col justify-center">
-              <div className="flex justify-between items-start mb-8 pb-8 border-b border-primary">
-                <h3 className="font-black leading-[0.9] tracking-tighter uppercase text-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">HIMTI BINUS</h3>
-                <span className="px-3 py-1 bg-blue-50 text-blue-600 border border-blue-200 text-[10px] font-bold uppercase rounded-full mt-2">Computer Science Student Association</span>
+            <div className="flex-1 flex flex-col justify-center w-full">
+              <div className="flex flex-wrap justify-between items-start gap-2 mb-6 md:mb-8 pb-6 md:pb-8 border-b border-primary">
+                <h3 className="font-black leading-[0.95] tracking-tighter uppercase text-primary text-[clamp(1.5rem,2.8vw,2.5rem)]">HIMTI BINUS</h3>
+                <span className="px-3 py-1 bg-blue-50 text-blue-600 border border-blue-200 text-[10px] font-bold uppercase rounded-full mt-1 md:mt-2">Computer Science Student Association</span>
               </div>
-              <h4 className="font-bold text-black text-2xl uppercase tracking-tight mb-2">Education Activist (Academic Event Subdivision)</h4>
-              <p className="font-label-caps text-on-surface-variant mb-6 uppercase">March 2024 - January 2026</p>
-              <ul className="list-disc pl-5 font-body-lg text-on-surface-variant space-y-2">
+              <h4 className="font-bold text-black text-xl md:text-2xl uppercase tracking-tight mb-2">Education Activist (Academic Event Subdivision)</h4>
+              <p className="font-label-caps text-on-surface-variant mb-4 md:mb-6 uppercase">March 2024 - January 2026</p>
+              <ul className="list-disc pl-5 text-base md:text-[17.5px] leading-relaxed text-on-surface-variant space-y-2">
                 <li>Competitively selected through a rigorous multi-stage recruitment process to serve as an Education Activist in BINUS University's official Computer Science student organization.</li>
                 <li>Enhancing collaboration and academic skill development among peers, with a focus on insights and trends in the field of Computer Science.</li>
                 <li>Contributing as a core committee member for HIMTI BINUS flagship events.</li>
               </ul>
             </div>
           </div>
-          
-          <h4 className="leading-none text-left uppercase tracking-tighter mb-12 border-b border-outline-variant pb-4 font-medium text-3xl reveal reveal-up">HIMTI Events Highlights</h4>
-          
+
+          <h4 className="leading-none text-left uppercase tracking-tighter mb-8 md:mb-12 border-b border-outline-variant pb-4 font-medium text-2xl md:text-3xl reveal reveal-up">HIMTI Events Highlights</h4>
+
           {/* Spotlight Events Timeline */}
-          <div className="flex flex-col gap-0 mb-12 relative border-outline-variant ml-6">
-            
+          <div className="flex flex-col gap-0 mb-12 relative border-outline-variant ml-3 md:ml-6">
+
             {/* Role 1 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
+            <div className="group flex flex-col md:flex-row py-8 md:py-12 gap-gutter items-start relative pl-8 md:pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
-              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
-                  <span className="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">1</span>
+              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-8 md:top-[51px] z-10">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+                  <span className="font-label-caps text-[#A3B18A] text-xs md:text-sm group-hover:text-white">1</span>
                 </div>
               </div>
-              <div className="flex-[3] flex flex-col justify-center max-w-[600px]">
+              <div className="flex-[3] flex flex-col justify-center max-w-[600px] w-full">
                 <div className="mb-4">
-                  <span className="font-headline-md text-primary block mb-2">HIMTI COMPANY VISIT 2025 | Coordinator of Registration Division</span>
+                  <span className="text-xl md:text-headline-md font-semibold text-primary block mb-2 leading-snug">HIMTI COMPANY VISIT 2025 | Coordinator of Registration Division</span>
                   <span className="font-label-caps text-on-surface-variant uppercase">August 2025 - October 2025</span>
                 </div>
                 <ul className="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -93,16 +93,16 @@ const Experience = () => {
             </div>
 
             {/* Role 2 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
+            <div className="group flex flex-col md:flex-row py-8 md:py-12 gap-gutter items-start relative pl-8 md:pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
-              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
-                  <span className="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">2</span>
+              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-8 md:top-[51px] z-10">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+                  <span className="font-label-caps text-[#A3B18A] text-xs md:text-sm group-hover:text-white">2</span>
                 </div>
               </div>
-              <div className="flex-[3] flex flex-col justify-center max-w-[600px]">
+              <div className="flex-[3] flex flex-col justify-center max-w-[600px] w-full">
                 <div className="mb-4">
-                  <span className="font-headline-md text-primary block mb-2">TECHFEST 2025 | Technical Division Staff</span>
+                  <span className="text-xl md:text-headline-md font-semibold text-primary block mb-2 leading-snug">TECHFEST 2025 | Technical Division Staff</span>
                   <span className="font-label-caps text-on-surface-variant uppercase">April 2025 - July 2025</span>
                 </div>
                 <ul className="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -117,16 +117,16 @@ const Experience = () => {
             </div>
 
             {/* Role 3 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
+            <div className="group flex flex-col md:flex-row py-8 md:py-12 gap-gutter items-start relative pl-8 md:pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
-              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
-                  <span className="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">3</span>
+              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-8 md:top-[51px] z-10">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+                  <span className="font-label-caps text-[#A3B18A] text-xs md:text-sm group-hover:text-white">3</span>
                 </div>
               </div>
-              <div className="flex-[3] flex flex-col justify-center max-w-[600px]">
+              <div className="flex-[3] flex flex-col justify-center max-w-[600px] w-full">
                 <div className="mb-4">
-                  <span className="font-headline-md text-primary block mb-2">SESVENT 2024 | Vice Coordinator of Technical Division</span>
+                  <span className="text-xl md:text-headline-md font-semibold text-primary block mb-2 leading-snug">SESVENT 2024 | Vice Coordinator of Technical Division</span>
                   <span className="font-label-caps text-on-surface-variant uppercase">September 2024 - October 2024</span>
                 </div>
                 <ul className="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -141,16 +141,16 @@ const Experience = () => {
             </div>
 
             {/* Role 4 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
+            <div className="group flex flex-col md:flex-row py-8 md:py-12 gap-gutter items-start relative pl-8 md:pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
-              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
-                  <span className="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">4</span>
+              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-8 md:top-[51px] z-10">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+                  <span className="font-label-caps text-[#A3B18A] text-xs md:text-sm group-hover:text-white">4</span>
                 </div>
               </div>
-              <div className="flex-[3] flex flex-col justify-center max-w-[600px]">
+              <div className="flex-[3] flex flex-col justify-center max-w-[600px] w-full">
                 <div className="mb-4">
-                  <span className="font-headline-md text-primary block mb-2">HISHOT 2024 | Domestic Study Tour Staff</span>
+                  <span className="text-xl md:text-headline-md font-semibold text-primary block mb-2 leading-snug">HISHOT 2024 | Domestic Study Tour Staff</span>
                   <span className="font-label-caps text-on-surface-variant uppercase">April 2024 - October 2024</span>
                 </div>
                 <ul className="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -165,16 +165,16 @@ const Experience = () => {
             </div>
 
             {/* Role 5 */}
-            <div className="group flex flex-col md:flex-row py-12 gap-gutter items-start relative pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
+            <div className="group flex flex-col md:flex-row py-8 md:py-12 gap-gutter items-start relative pl-8 md:pl-16 border-b border-outline-variant last:border-0 reveal reveal-up">
               <div className="absolute left-0 h-full w-[2px] bg-outline-variant top-0"></div>
-              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-[51px] z-10">
-                <div className="w-8 h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
-                  <span className="font-label-caps text-[#A3B18A] text-sm group-hover:text-white">5</span>
+              <div className="absolute left-0 -translate-x-1/2 flex items-center justify-center top-8 md:top-[51px] z-10">
+                <div className="w-7 h-7 md:w-8 md:h-8 rounded-full border-2 border-outline-variant bg-background flex items-center justify-center transition-all duration-300 timeline-circle">
+                  <span className="font-label-caps text-[#A3B18A] text-xs md:text-sm group-hover:text-white">5</span>
                 </div>
               </div>
-              <div className="flex-[3] flex flex-col justify-center max-w-[600px]">
+              <div className="flex-[3] flex flex-col justify-center max-w-[600px] w-full">
                 <div className="mb-4">
-                  <span className="font-headline-md text-primary block mb-2">TECHNO 2024 | Sponsor Division Staff</span>
+                  <span className="text-xl md:text-headline-md font-semibold text-primary block mb-2 leading-snug">TECHNO 2024 | Sponsor Division Staff</span>
                   <span className="font-label-caps text-on-surface-variant uppercase">April 2024 - September 2024</span>
                 </div>
                 <ul className="list-disc pl-5 font-body-md text-on-surface-variant space-y-2">
@@ -189,15 +189,15 @@ const Experience = () => {
             </div>
 
           </div>
-          
-          <button 
-            className="w-full flex justify-between items-center py-4 px-6 border border-outline-variant hover:bg-surface-container transition-colors duration-300 mt-8" 
+
+          <button
+            className="w-full flex justify-between items-center py-4 px-5 md:px-6 border border-outline-variant hover:bg-surface-container transition-colors duration-300 mt-8"
             onClick={() => setShowArchives(!showArchives)}
           >
-            <span className="font-bold uppercase text-primary tracking-tight text-left">VIEW OTHER HIMTI ROLES & ARCHIVES</span>
+            <span className="font-bold text-sm md:text-base uppercase text-primary tracking-tight text-left">VIEW OTHER HIMTI ROLES & ARCHIVES</span>
             <span className="material-symbols-outlined text-primary transition-transform duration-300" style={{ transform: showArchives ? 'rotate(180deg)' : 'rotate(0deg)' }}>expand_more</span>
           </button>
-          
+
           {showArchives && (
             <div className="w-full border border-t-0 border-outline-variant p-6 bg-surface-container-lowest" id="himti-archives">
               <p className="font-body-md text-on-surface-variant">Archived roles and experiences will be displayed here.</p>

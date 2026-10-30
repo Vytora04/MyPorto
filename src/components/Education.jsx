@@ -3,7 +3,7 @@ import React from 'react';
 // Newest → Oldest
 const educationData = [
   {
-    period: 'March 2026 - Present',
+    period: 'March 2026 – July 2026',
     flagSrc: 'https://flagcdn.com/w80/my.png',
     flagAlt: 'Malaysia Flag',
     flagDelay: '0.5s',
@@ -62,8 +62,7 @@ const EducationCard = ({
 
   return (
     <div
-      className={`edu-glass-card ${side === 'left' ? 'edu-card-left' : 'edu-card-right'}`}
-      style={{ padding: '1.75rem 2rem', width: '100%' }}
+      className={`edu-glass-card p-5 sm:p-7 w-full ${side === 'left' ? 'edu-card-left' : 'edu-card-right'}`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -86,12 +85,14 @@ const EducationCard = ({
       <img
         src={flagSrc}
         alt={flagAlt}
+        loading="lazy"
+        decoding="async"
         className="animate-flag"
         style={{
           position: 'absolute',
-          top: '1.25rem',
-          right: '1.25rem',
-          width: '2.4rem',
+          top: '1.15rem',
+          right: '1.15rem',
+          width: '2.25rem',
           borderRadius: '0.25rem',
           boxShadow: '0 2px 6px rgba(0,0,0,0.15)',
           border: '1px solid rgba(255,255,255,0.6)',
@@ -120,9 +121,10 @@ const EducationCard = ({
         <h3 style={{
           fontFamily: 'Inter, sans-serif',
           fontWeight: 800,
-          fontSize: '1.2rem',
+          fontSize: '1.15rem',
           lineHeight: 1.2,
           marginBottom: '0.3rem',
+          paddingRight: '2.5rem',
           color: hovered ? accent : '#1b1b1b',
           transition: 'color 0.3s ease',
         }}>{institution}</h3>
@@ -130,7 +132,7 @@ const EducationCard = ({
         {/* Degree */}
         <p style={{
           fontFamily: 'Inter, sans-serif',
-          fontSize: '0.93rem',
+          fontSize: '0.92rem',
           fontWeight: 500,
           color: '#2d2d2d',
           marginBottom: '0.3rem',
@@ -188,7 +190,7 @@ const Education = () => {
           }));
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.2 }
     );
 
     itemRefs.current.forEach((ref) => {
@@ -207,32 +209,28 @@ const Education = () => {
   }, []);
 
   return (
-    <section 
-      className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" 
+    <section
+      className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24"
       id="academic-history"
     >
-      <div className="col-span-full flex justify-center mb-24">
-        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[6vw]">ACADEMIC HISTORY</h2>
+      <div className="col-span-full flex justify-center mb-12 md:mb-24">
+        <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[clamp(2rem,6vw,5.5rem)]">ACADEMIC HISTORY</h2>
       </div>
 
       {/* Timeline container */}
-      <div style={{ maxWidth: '1300px', margin: '0 auto', position: 'relative' }}>
+      <div className="max-w-[1300px] mx-auto relative">
 
-        {/* Center vertical line */}
-        <div style={{
-          position: 'absolute',
-          left: '50%',
-          top: 0,
-          bottom: 0,
-          width: '2px',
-          transform: 'translateX(-50%)',
-          background: 'linear-gradient(to bottom, #003B71 0%, #F5821F 50%, #CC0000 100%)',
-          opacity: 0.25,
-          zIndex: 0,
-        }} />
+        {/* Vertical line: left-aligned on mobile (< md), center-aligned on desktop (md+) */}
+        <div
+          className="absolute top-0 bottom-0 w-[2px] left-[15px] md:left-1/2 md:-translate-x-1/2 z-0"
+          style={{
+            background: 'linear-gradient(to bottom, #003B71 0%, #F5821F 50%, #CC0000 100%)',
+            opacity: 0.25,
+          }}
+        />
 
         {educationData.map((item, idx) => {
-          const isLeft = idx % 2 === 0; // UM=left, BINUS=right, PENABUR=left
+          const isLeft = idx % 2 === 0; // UM=left, BINUS=right, PENABUR=left on desktop
           const isCardVisible = visibleCards[idx];
 
           return (
@@ -242,21 +240,15 @@ const Education = () => {
                 itemRefs.current[idx] = el;
               }}
               data-index={idx}
-              className={`edu-item-${idx} ${isCardVisible ? 'animate-in' : ''}`}
-              style={{
-                display: 'grid',
-                gridTemplateColumns: '1fr 56px 1fr',
-                alignItems: 'start',
-                marginBottom: idx < educationData.length - 1 ? '2.5rem' : 0,
-              }}
+              className={`edu-item-${idx} ${isCardVisible ? 'animate-in' : ''} grid grid-cols-[32px_1fr] md:grid-cols-[1fr_56px_1fr] items-start ${idx < educationData.length - 1 ? 'mb-8 md:mb-10' : 'mb-0'}`}
             >
-              {/* Left slot */}
-              <div style={{ paddingRight: '1.5rem' }}>
+              {/* Desktop Left slot (hidden on mobile) */}
+              <div className="hidden md:block md:pr-6">
                 {isLeft && <EducationCard {...item} side="left" />}
               </div>
 
-              {/* Center: dot + connector tick */}
-              <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', paddingTop: '1.9rem', position: 'relative', zIndex: 1 }}>
+              {/* Timeline dot + connector tick */}
+              <div className="flex flex-col items-center pt-6 md:pt-[1.9rem] relative z-10">
                 <div
                   className="timeline-dot animate-in"
                   style={{
@@ -269,21 +261,28 @@ const Education = () => {
                     flexShrink: 0,
                   }}
                 />
-                {/* Short horizontal tick toward the card */}
-                <div style={{
-                  position: 'absolute',
-                  top: 'calc(1.9rem + 7px)',
-                  [isLeft ? 'right' : 'left']: '50%',
-                  width: '1.5rem',
-                  height: '2px',
-                  background: item.accent,
-                  opacity: 0.45,
-                }} />
+                {/* Short horizontal tick toward the card on desktop */}
+                <div
+                  className="hidden md:block absolute h-[2px] w-6"
+                  style={{
+                    top: 'calc(1.9rem + 7px)',
+                    [isLeft ? 'right' : 'left']: '50%',
+                    background: item.accent,
+                    opacity: 0.45,
+                  }}
+                />
               </div>
 
-              {/* Right slot */}
-              <div style={{ paddingLeft: '1.5rem' }}>
-                {!isLeft && <EducationCard {...item} side="right" />}
+              {/* Right slot on mobile (all cards) & Desktop Right slot (!isLeft) */}
+              <div className="pl-3 sm:pl-4 md:pl-6">
+                {/* Mobile view: always render card on the right of the line */}
+                <div className="md:hidden">
+                  <EducationCard {...item} side="right" />
+                </div>
+                {/* Desktop view: only render when !isLeft */}
+                <div className="hidden md:block">
+                  {!isLeft && <EducationCard {...item} side="right" />}
+                </div>
               </div>
             </div>
           );

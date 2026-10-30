@@ -1,11 +1,13 @@
-import React, { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useRef } from 'react';
 
 const SkillTag = ({ icon, label, colorClass, category }) => {
-  let baseStyle = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium hover:text-white hover:scale-105 transition-all cursor-default shadow-sm";
-  let themeStyle = "";
+  const baseStyle = "flex items-center gap-1.5 px-3 py-1.5 rounded-lg text-sm font-medium hover:text-white hover:scale-105 transition-all cursor-default shadow-sm";
+  let themeStyle;
 
   if (category === 'core') {
     themeStyle = "bg-white/60 border border-gray-200 hover:bg-ghibli-green";
+  } else if (category === 'frameworks') {
+    themeStyle = "bg-white/60 border border-gray-200 text-gray-800 hover:bg-academic-sage";
   } else if (category === 'exploring') {
     themeStyle = "bg-white/40 border border-dashed border-gray-300 text-gray-600 hover:bg-ghibli-yellow hover:text-ghibli-dark";
   } else {
@@ -21,8 +23,8 @@ const SkillTag = ({ icon, label, colorClass, category }) => {
 
 const AchievementItem = ({ icon, title, subtitle, iconColor, bounce }) => (
   <li className="flex gap-3 hover:translate-x-2 transition-transform p-2 hover:bg-white/40 rounded-lg group">
-    <i className={`${icon} ${iconColor} text-xl shrink-0 mt-0.5 ${bounce ? 'animate-bounce' : ''}`} 
-       style={bounce ? { animationDuration: '3s' } : {}}></i>
+    <i className={`${icon} ${iconColor} text-xl shrink-0 mt-0.5 ${bounce ? 'animate-bounce' : ''}`}
+      style={bounce ? { animationDuration: '3s' } : {}}></i>
     <div>
       <p className="text-sm font-bold text-gray-800">{title}</p>
       <p className="text-xs text-gray-500">{subtitle}</p>
@@ -70,7 +72,7 @@ const DustBunny = () => {
 
     const angle = Math.atan2(mouseY - centerY, mouseX - centerX);
     const dist = Math.min(4, Math.hypot(mouseX - centerX, mouseY - centerY) / 15);
-    
+
     setPupilPos({
       x: Math.cos(angle) * dist,
       y: Math.sin(angle) * dist
@@ -87,10 +89,10 @@ const DustBunny = () => {
 
   const handleClick = () => {
     resetIdleTimer();
-    
+
     const newCount = clickCount + 1;
     setClickCount(newCount);
-    
+
     if (clickTimer.current) clearTimeout(clickTimer.current);
     clickTimer.current = setTimeout(() => setClickCount(0), 1000);
 
@@ -104,7 +106,7 @@ const DustBunny = () => {
     }
 
     setMood('happy');
-    
+
     // Add sparkles
     const newSparkles = Array.from({ length: 5 }).map((_, i) => ({
       id: Date.now() + i,
@@ -119,7 +121,9 @@ const DustBunny = () => {
   };
 
   useEffect(() => {
-    resetIdleTimer();
+    idleTimer.current = setTimeout(() => {
+      setMood('sleepy');
+    }, 8000);
     return () => {
       if (idleTimer.current) clearTimeout(idleTimer.current);
       if (clickTimer.current) clearTimeout(clickTimer.current);
@@ -137,20 +141,20 @@ const DustBunny = () => {
   };
 
   return (
-    <div 
+    <div
       ref={containerRef}
       onMouseMove={handleMouseMove}
       onMouseEnter={handleMouseEnter}
       onClick={handleClick}
-      className="mt-8 flex flex-col items-center justify-center p-6 bg-white/30 rounded-2xl border border-white/50 relative overflow-hidden group cursor-pointer shadow-inner select-none" 
+      className="mt-8 flex flex-col items-center justify-center p-6 bg-white/30 rounded-2xl border border-white/50 relative overflow-hidden group cursor-pointer shadow-inner select-none"
       id="pet-container"
     >
       <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6 pointer-events-none">Pet the Dust Bunny</h4>
-      
+
       <div className="relative">
         {/* Sparkles */}
         {sparkles.map(s => (
-          <span 
+          <span
             key={s.id}
             className="absolute text-ghibli-yellow animate-ping pointer-events-none z-20"
             style={{ left: `calc(50% + ${s.x}px)`, top: `calc(50% + ${s.y}px)`, fontSize: '12px' }}
@@ -162,7 +166,7 @@ const DustBunny = () => {
         <div className={`soot-sprite w-16 h-16 bg-ghibli-dark rounded-full relative flex items-center justify-center z-10 transition-all duration-300 
           ${mood === 'happy' ? '-translate-y-6 scale-110' : ''} 
           ${mood === 'dizzy' ? 'animate-bounce' : ''}`}>
-          
+
           <div className="absolute w-10 flex justify-between top-3">
             {/* Left Eye */}
             <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-200 
@@ -170,8 +174,8 @@ const DustBunny = () => {
                 ${mood === 'sleepy' ? 'h-0.5 mt-2 opacity-40' : ''}
                 ${mood === 'surprised' ? 'scale-125' : ''}
                 ${mood === 'dizzy' ? 'scale-90' : ''}`}>
-              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`} 
-                   style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
+              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`}
+                style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
             </div>
             {/* Right Eye */}
             <div className={`w-3.5 h-4.5 bg-white rounded-full relative overflow-hidden transition-all duration-200 
@@ -179,8 +183,8 @@ const DustBunny = () => {
                 ${mood === 'sleepy' ? 'h-0.5 mt-2 opacity-40' : ''}
                 ${mood === 'surprised' ? 'scale-125' : ''}
                 ${mood === 'dizzy' ? 'scale-90' : ''}`}>
-              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`} 
-                   style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
+              <div className={`w-1.5 h-1.5 bg-black rounded-full absolute top-1.5 left-1 transition-transform duration-75 ${mood === 'dizzy' ? 'animate-ping' : ''}`}
+                style={{ transform: mood === 'dizzy' ? 'none' : `translate(${pupilPos.x}px, ${pupilPos.y}px)` }}></div>
             </div>
           </div>
         </div>
@@ -194,63 +198,66 @@ const DustBunny = () => {
 };
 
 const Capabilities = () => {
-  useEffect(() => {
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) entry.target.classList.add('active');
-      });
-    }, { threshold: 0.1 });
-
-    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
-  }, []);
-
   return (
     <section className="pt-8 pb-section-gap px-container-padding bg-surface scroll-mt-24" id="competencies">
-      <div className="col-span-full flex justify-center mb-24">
-        <h2 className="font-black leading-none text-center uppercase tracking-tighter title-hover-effect cursor-default text-[5vw]">PROFESSIONAL COMPETENCIES</h2>
+      <div className="col-span-full flex justify-center mb-12 md:mb-24">
+        <h2 className="font-black leading-none text-center uppercase tracking-tighter title-hover-effect cursor-default text-[clamp(1.85rem,5vw,4.5rem)]">PROFESSIONAL COMPETENCIES</h2>
       </div>
 
-      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
+      <div className="max-w-[1100px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12">
         {/* Left Column: Technical Toolbox */}
-        <div className="glass-card p-8 reveal reveal-left active flex flex-col h-full">
-          <h3 className="font-serif text-3xl font-bold text-ghibli-dark mb-10 flex items-center gap-3 group">
+        <div className="glass-card p-6 sm:p-8 reveal reveal-left flex flex-col h-full">
+          <h3 className="font-serif text-2xl sm:text-3xl font-bold text-ghibli-dark mb-8 flex items-center gap-3 group">
             <i className="ph-fill ph-wrench text-ghibli-text group-hover:rotate-45 transition-transform"></i> Technical Toolbox
           </h3>
-          
-          <div className="space-y-10 flex-grow">
+
+          <div className="space-y-7 flex-grow">
             <div>
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Core Stack</h4>
-              <div className="flex flex-wrap gap-2.5">
-                <SkillTag category="core" icon="ph-fill ph-terminal-window" colorClass="text-gray-600" label="C/C++" />
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3.5">Core Stack & Languages</h4>
+              <div className="flex flex-wrap gap-2">
                 <SkillTag category="core" icon="ph-fill ph-file-code" colorClass="text-blue-500" label="Python" />
+                <SkillTag category="core" icon="ph-fill ph-terminal-window" colorClass="text-gray-600" label="C/C++" />
                 <SkillTag category="core" icon="ph-fill ph-database" colorClass="text-orange-500" label="SQL" />
+                <SkillTag category="core" icon="ph-fill ph-file-js" colorClass="text-yellow-500" label="JavaScript" />
+                <SkillTag category="core" icon="ph-fill ph-file-ts" colorClass="text-blue-600" label="TypeScript" />
                 <SkillTag category="core" icon="ph-fill ph-chart-line-up" colorClass="text-blue-400" label="R" />
                 <SkillTag category="core" icon="ph-fill ph-browsers" colorClass="text-orange-400" label="HTML/CSS" />
               </div>
             </div>
 
             <div>
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Exploring</h4>
-              <div className="flex flex-wrap gap-2.5">
-                <SkillTag category="exploring" icon="ph-fill ph-file-js" colorClass="text-yellow-500" label="JavaScript" />
-                <SkillTag category="exploring" icon="ph-fill ph-coffee" colorClass="text-orange-600" label="Java" />
-                <SkillTag category="exploring" icon="ph-fill ph-device-mobile" colorClass="text-blue-400" label="Flutter" />
-                <SkillTag category="exploring" icon="ph-fill ph-cube" colorClass="text-red-500" label="Laravel" />
-                <SkillTag category="exploring" icon="ph-fill ph-file-code" colorClass="text-indigo-500" label="PHP" />
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3.5">AI / ML & Frameworks</h4>
+              <div className="flex flex-wrap gap-2">
+                <SkillTag category="frameworks" icon="ph-fill ph-fire" colorClass="text-orange-500" label="PyTorch" />
+                <SkillTag category="frameworks" icon="ph-fill ph-brain" colorClass="text-purple-500" label="Transformers & PEFT (LoRA)" />
+                <SkillTag category="frameworks" icon="ph-fill ph-atom" colorClass="text-cyan-500" label="React" />
+                <SkillTag category="frameworks" icon="ph-fill ph-wind" colorClass="text-teal-500" label="Tailwind CSS" />
+                <SkillTag category="frameworks" icon="ph-fill ph-lightning" colorClass="text-emerald-500" label="FastAPI" />
+                <SkillTag category="frameworks" icon="ph-fill ph-presentation-chart" colorClass="text-red-500" label="Streamlit" />
+                <SkillTag category="frameworks" icon="ph-fill ph-flask" colorClass="text-gray-700" label="Flask" />
               </div>
             </div>
 
             <div>
-              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-4">Infrastructure & Tools</h4>
-              <div className="flex flex-wrap gap-2.5">
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3.5">Exploring</h4>
+              <div className="flex flex-wrap gap-2">
+                <SkillTag category="exploring" icon="ph-fill ph-device-mobile" colorClass="text-blue-400" label="Flutter" />
+                <SkillTag category="exploring" icon="ph-fill ph-cube" colorClass="text-red-500" label="Laravel" />
+                <SkillTag category="exploring" icon="ph-fill ph-file-code" colorClass="text-indigo-500" label="PHP" />
+                <SkillTag category="exploring" icon="ph-fill ph-coffee" colorClass="text-orange-600" label="Java" />
+              </div>
+            </div>
+
+            <div>
+              <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-3.5">Infrastructure & Tools</h4>
+              <div className="flex flex-wrap gap-2">
                 <SkillTag category="tools" icon="ph-fill ph-code-block" colorClass="text-blue-600" label="VS Code" />
                 <SkillTag category="tools" icon="ph-fill ph-google-logo" colorClass="text-yellow-500" label="Google Colab" />
                 <SkillTag category="tools" icon="ph-fill ph-github-logo" colorClass="text-gray-800" label="GitHub" />
                 <SkillTag category="tools" icon="ph-fill ph-figma-logo" colorClass="text-pink-500" label="Figma" />
-                <SkillTag category="tools" icon="ph-fill ph-hard-drives" colorClass="text-orange-400" label="XAMPP" />
                 <SkillTag category="tools" icon="ph-fill ph-planet" colorClass="text-orange-500" label="Jupyter" />
                 <SkillTag category="tools" icon="ph-fill ph-database" colorClass="text-blue-500" label="MySQL Workbench" />
+                <SkillTag category="tools" icon="ph-fill ph-hard-drives" colorClass="text-orange-400" label="XAMPP" />
                 <SkillTag category="tools" icon="ph-fill ph-broadcast" colorClass="text-blue-600" label="Cisco Packet Tracer" />
                 <SkillTag category="tools" icon="ph-fill ph-chart-polar" colorClass="text-blue-400" label="RStudio" />
                 <SkillTag category="tools" icon="ph-fill ph-hammer" colorClass="text-gray-500" label="RapidMiner" />
@@ -267,44 +274,44 @@ const Capabilities = () => {
         {/* Right Column: Split Cards */}
         <div className="flex flex-col gap-8 h-full">
           {/* Achievements Card */}
-          <div className="glass-card p-8 reveal reveal-right active">
-            <h3 className="font-serif text-3xl font-bold text-ghibli-dark mb-8 flex items-center gap-3 group">
+          <div className="glass-card p-6 sm:p-8 reveal reveal-right">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-ghibli-dark mb-6 md:mb-8 flex items-center gap-3 group">
               <i className="ph-fill ph-star text-ghibli-yellow group-hover:scale-125 transition-transform"></i> Achievements & Certs
             </h3>
             <ul className="space-y-5">
-              <AchievementItem 
+              <AchievementItem
                 icon="ph-fill ph-trophy" iconColor="text-ghibli-yellow" bounce
-                title="Finalist of Data Science Competition (LOGIKA UI 2025)" subtitle="FMIPA Universitas Indonesia" 
+                title="Finalist of Data Science Competition (LOGIKA UI 2025)" subtitle="FMIPA Universitas Indonesia"
               />
-              <AchievementItem 
+              <AchievementItem
                 icon="ph-fill ph-trophy" iconColor="text-ghibli-yellow" bounce
-                title="Finalist of AI4A Competition (SoCS Hackathon 2024)" subtitle="BINUS x Microsoft" 
+                title="Finalist of AI4A Competition (SoCS Hackathon 2024)" subtitle="BINUS x Microsoft"
               />
-              <AchievementItem 
-                icon="ph-fill ph-certificate" iconColor="text-ghibli-green" 
-                title="Alibaba Cloud Certified Associate" subtitle={<>Cloud Engineer <span className="text-ghibli-green font-medium">(Valid until 2027)</span></>} 
+              <AchievementItem
+                icon="ph-fill ph-certificate" iconColor="text-ghibli-green"
+                title="Alibaba Cloud Certified Associate" subtitle={<>Cloud Engineer <span className="text-ghibli-green font-medium">(Valid until 2027)</span></>}
               />
-              <AchievementItem 
-                icon="ph-fill ph-translate" iconColor="text-purple-400" 
-                title="IELTS Academic" subtitle={<>Band 7.0 <span className="text-purple-500 font-medium">(Valid until 2027)</span></>} 
+              <AchievementItem
+                icon="ph-fill ph-translate" iconColor="text-purple-400"
+                title="IELTS Academic" subtitle={<>Band 7.0 <span className="text-purple-500 font-medium">(Valid until 2027)</span></>}
               />
             </ul>
           </div>
 
           {/* Traits & Languages Card */}
-          <div className="glass-card p-8 reveal reveal-right active flex-grow">
-            <h3 className="font-serif text-3xl font-bold text-ghibli-dark mb-6 flex items-center gap-3 group">
+          <div className="glass-card p-6 sm:p-8 reveal reveal-right flex-grow">
+            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-ghibli-dark mb-6 flex items-center gap-3 group">
               <i className="ph-fill ph-users text-ghibli-blue group-hover:scale-125 transition-transform"></i> Traits & Languages
             </h3>
-            
-            <div className="flex flex-wrap gap-2 mb-10">
+
+            <div className="flex flex-wrap gap-2 mb-8 md:mb-10">
               {['Project Management', 'Event Management', 'Team Communication', 'Problem Solving', 'Adaptability', 'Documentation'].map(trait => (
                 <span key={trait} className="px-3 py-1 bg-ghibli-light-green/20 text-ghibli-dark rounded-full text-xs font-semibold hover:bg-ghibli-green hover:text-white transition-colors cursor-default">
                   {trait}
                 </span>
               ))}
             </div>
-            
+
             <h4 className="text-xs font-bold text-gray-400 uppercase tracking-widest mb-6">Languages</h4>
             <ol className="space-y-6 list-decimal pl-4 text-sm text-gray-700 font-medium marker:text-ghibli-green marker:font-bold">
               <LanguageBar name="Indonesia" levelText="Native" level="10" percentage={100} colorClass="bg-ghibli-green" />

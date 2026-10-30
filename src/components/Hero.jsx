@@ -9,6 +9,7 @@ const Hero = () => {
   const [isAtTop, setIsAtTop] = useState(true);
 
   useEffect(() => {
+    const el = heroRef.current;
     const observer = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -19,13 +20,13 @@ const Hero = () => {
       { threshold: 0.1 }
     );
 
-    if (heroRef.current) {
-      observer.observe(heroRef.current);
+    if (el) {
+      observer.observe(el);
     }
 
     return () => {
-      if (heroRef.current) {
-        observer.unobserve(heroRef.current);
+      if (el) {
+        observer.unobserve(el);
       }
     };
   }, []);
@@ -47,15 +48,15 @@ const Hero = () => {
   }, []);
 
   return (
-    <section 
+    <section
       ref={heroRef}
-      className="flex flex-col justify-center items-center px-container-padding relative min-h-[calc(100vh-80px)] overflow-hidden"
+      className="flex flex-col justify-center items-center px-container-padding relative min-h-[calc(100svh-80px)] overflow-hidden"
     >
-      <div className="flex flex-col items-center gap-12 w-full">
-        <h1 
+      <div className="flex flex-col items-center gap-8 md:gap-12 w-full max-w-full">
+        <h1
           key={animationKey}
-          className="font-black leading-none tracking-tighter text-primary text-center typewriter-effect uppercase whitespace-nowrap" 
-          style={{ animation: 'typewriter 2s steps(17, end) forwards', fontSize: 'clamp(2.5rem, 6.5vw, 8rem)' }}
+          className="font-black leading-none tracking-tighter text-primary text-center typewriter-effect uppercase whitespace-nowrap max-w-full"
+          style={{ animation: 'typewriter 2s steps(17, end) forwards', fontSize: 'clamp(1.5rem, 6.5vw, 8rem)' }}
         >
           FAHIMSYACH LOKANTA
         </h1>
@@ -63,8 +64,8 @@ const Hero = () => {
         <TickerTape typingDone={typingDone} />
       </div>
 
-      <button 
-        className={`absolute bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-all duration-500 animate-bounce ${isAtTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`} 
+      <button
+        className={`absolute bottom-8 md:bottom-12 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2 group transition-all duration-500 animate-bounce ${isAtTop ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4 pointer-events-none'}`}
         onClick={(e) => {
           e.preventDefault();
           document.getElementById('the-narrative')?.scrollIntoView({ behavior: 'smooth' });
