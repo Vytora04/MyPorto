@@ -44,7 +44,8 @@ const Experience = () => {
                 '/images/experience/himti3.jpg',
                 '/images/experience/himti4.jpg',
                 '/images/experience/himti5.jpg',
-                '/images/experience/himticertif1.jpg'
+                '/images/experience/himticertif1.jpg',
+                '/images/experience/himticertif2.jpg'
               ]} />
             </div>
             {/* Right: Text */}

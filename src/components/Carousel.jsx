@@ -55,7 +55,7 @@ const Carousel = ({ images, dots = true, autoPlay = false }) => {
 
   return (
     <>
-      <div className="relative w-full aspect-video bg-surface-container overflow-hidden mb-6 md:mb-8 group/carousel rounded-lg md:rounded-none">
+      <div className="relative w-full aspect-[4/3] bg-surface-container overflow-hidden mb-6 md:mb-8 group/carousel rounded-lg md:rounded-none">
         <div
           className="flex transition-transform duration-700 ease-in-out h-full cursor-zoom-in"
           style={{ transform: `translateX(${offset}%)` }}

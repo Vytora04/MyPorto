@@ -119,14 +119,16 @@ const Footer = () => {
                 )}
               </div>
             </div>
-            <div className="flex items-center gap-2 text-primary">
-              <span className="material-symbols-outlined text-[20px]">location_on</span>
-              <span className="font-label-caps">TANGERANG, INDONESIA</span>
+            <div className="flex flex-col items-start md:items-end gap-1.5 text-primary">
+              <div className="flex items-center gap-2">
+                <span className="material-symbols-outlined text-[20px]">location_on</span>
+                <span className="font-label-caps">TANGERANG, INDONESIA</span>
+              </div>
+              <p className="font-label-caps text-on-surface-variant live-clock text-xs">{timeString}</p>
             </div>
           </div>
-          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 mt-4 md:mt-2">
+          <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-2 sm:gap-4 mt-6 md:mt-4 pt-4 border-t border-outline-variant/30">
             <p className="font-label-caps text-on-surface-variant">© 2026 FAHIM. ALL RIGHTS RESERVED.</p>
-            <p className="font-label-caps text-on-surface-variant live-clock">{timeString}</p>
           </div>
         </div>
       </div>

@@ -161,14 +161,14 @@ const Narrative = () => {
           {/* Left: Image with interactive flip on hover (desktop) or tap (mobile) */}
           <div className="w-full md:w-[40%] reveal reveal-left flex-shrink-0">
             <div
-              className="relative group perspective-1000 cursor-pointer"
+              className="relative group perspective-1000 cursor-pointer select-none"
               onClick={() => setIsFlipped((prev) => !prev)}
               title="Tap or hover to flip photo"
             >
-              <div className={`absolute inset-0 bg-ghibli-green/20 rounded-[2rem] transition-transform -z-10 ${isFlipped ? 'rotate-6' : 'rotate-3 group-hover:rotate-6'}`}></div>
+              <div className={`absolute inset-0 bg-ghibli-green/20 rounded-[2rem] transition-transform -z-10 ${isFlipped ? 'rotate-6' : 'rotate-3 md:group-hover:rotate-6'}`}></div>
               
               {/* Flip Card Container */}
-              <div className={`relative transition-all duration-700 preserve-3d ${isFlipped ? '[transform:rotateY(180deg)]' : 'group-hover:[transform:rotateY(180deg)]'}`}>
+              <div className={`relative transition-all duration-700 preserve-3d ${isFlipped ? '[transform:rotateY(180deg)]' : 'md:group-hover:[transform:rotateY(180deg)]'}`}>
                 {/* Front Image */}
                 <div className="w-full aspect-[4/5] [backface-visibility:hidden]">
                   <img 
@@ -192,11 +192,11 @@ const Narrative = () => {
               </div>
 
               {/* Status Badge - Dynamic Text on Hover or Tap */}
-              <div className="absolute -bottom-4 -right-4 bg-white px-4 py-2 rounded-full shadow-lg border border-gray-100 flex items-center gap-2 z-20">
+              <div className="absolute -bottom-4 -right-4 bg-white px-4 py-2 rounded-full shadow-lg border border-gray-100 flex items-center gap-2 z-20 pointer-events-none">
                 <span className="w-2 h-2 bg-ghibli-green rounded-full animate-pulse"></span>
                 <span className="text-[10px] font-bold text-gray-500 uppercase tracking-widest min-w-[140px] text-center">
-                  <span className={isFlipped ? 'hidden' : 'group-hover:hidden'}>Available for Internship</span>
-                  <span className={isFlipped ? 'inline' : 'hidden group-hover:inline'}>Whoa! Surprise!</span>
+                  <span className={isFlipped ? 'hidden' : 'md:group-hover:hidden'}>Exploring Opportunities</span>
+                  <span className={isFlipped ? 'inline' : 'hidden md:group-hover:inline'}>Whoa! Surprise!</span>
                 </span>
               </div>
             </div>
@@ -219,10 +219,10 @@ const Narrative = () => {
                 {/* Text content with deeper padding */}
                 <div className="px-2 md:px-4">
                   <p className="text-lg text-gray-700 leading-relaxed font-medium">
-                    I am a <span className="text-ghibli-dark font-bold underline decoration-ghibli-yellow/40 decoration-4 underline-offset-2">Computer Science</span> student at BINUS University.
+                    I am a <span className="text-ghibli-dark font-bold underline decoration-ghibli-yellow/40 decoration-4 underline-offset-2">Computer Science</span> student at BINUS University, currently working as an <span className="text-ghibli-dark font-bold">Application System Developer Intern</span> at <span className="text-ghibli-green font-bold">Bumi Resources</span>.
                   </p>
                   <p className="text-gray-600 mt-6 leading-relaxed">
-                    I thrive on solving technical puzzles and collaborating in dynamic teams. My journey is driven by a proactive spirit and a deep-seated eagerness to apply my skills within innovative environments that push the boundaries of technology.
+                    I thrive on solving technical puzzles and collaborating in dynamic teams—whether building RAG-based AI assistants, automating enterprise workflows, or exploring innovative environments that push the boundaries of technology.
                   </p>
                 </div>
 
