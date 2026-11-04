@@ -1,24 +1,7 @@
 import React from 'react';
 
-// Newest → Oldest
+// Newest / Ongoing → Oldest
 const educationData = [
-  {
-    period: 'March 2026 – July 2026',
-    flagSrc: 'https://flagcdn.com/w80/my.png',
-    flagAlt: 'Malaysia Flag',
-    flagDelay: '0.5s',
-    institution: 'Universiti Malaya',
-    degree: 'Undergraduate Exchange Programme (Inbound)',
-    classNote: 'Focus in Computer Science & Information System',
-    courseworkLabel: 'Relevant Coursework',
-    coursework: 'Computational Thinking with Robotics, Internet Technology, Soft Computing, Trends in Information Systems.',
-    description: [
-      'Selected for the Long-Term Mobility Programme (BINUS Global Class track) as a full-time exchange student for the Semester 2, 2025/2026 academic session.',
-      'Engaged in cross-cultural academic collaboration with diverse international student teams at Malaysia\'s top ranked university.'
-    ],
-    accent: '#003B71',
-    blobColor: 'rgba(0,59,113,0.13)',
-  },
   {
     period: 'September 2023 - Present',
     flagSrc: 'https://flagcdn.com/w80/id.png',
@@ -27,6 +10,7 @@ const educationData = [
     institution: 'BINUS University',
     degree: 'Bachelor of Computer Science (Artificial Intelligence)',
     classNote: 'Global Class',
+    isOngoing: true,
     courseworkLabel: 'Relevant Coursework',
     coursework: 'Data Structures, Artificial Intelligence, Database Technology, Machine Learning, Object-Oriented Programming, Software Engineering, Data Mining, Natural Language Processing, Web Programming.',
     description: [
@@ -37,6 +21,24 @@ const educationData = [
     blobColor: 'rgba(245,130,31,0.15)',
   },
   {
+    period: 'March 2026 – July 2026',
+    flagSrc: 'https://flagcdn.com/w80/my.png',
+    flagAlt: 'Malaysia Flag',
+    flagDelay: '0.5s',
+    institution: 'Universiti Malaya',
+    degree: 'Undergraduate Exchange Programme (Inbound)',
+    classNote: 'Focus in Computer Science & Information System',
+    isOngoing: false,
+    courseworkLabel: 'Relevant Coursework',
+    coursework: 'Computational Thinking with Robotics, Internet Technology, Soft Computing, Trends in Information Systems.',
+    description: [
+      'Selected for the Long-Term Mobility Programme (BINUS Global Class track) as a full-time exchange student for the Semester 2, 2025/2026 academic session.',
+      'Engaged in cross-cultural academic collaboration with diverse international student teams at Malaysia\'s top ranked university.'
+    ],
+    accent: '#003B71',
+    blobColor: 'rgba(0,59,113,0.13)',
+  },
+  {
     period: 'July 2020 – May 2023',
     flagSrc: 'https://flagcdn.com/w80/id.png',
     flagAlt: 'Indonesia Flag',
@@ -44,6 +46,7 @@ const educationData = [
     institution: 'PENABUR Senior High School',
     degree: 'High School Diploma (Natural Sciences)',
     classNote: 'Informatics Specialization',
+    isOngoing: false,
     courseworkLabel: null,
     coursework: null,
     description: 'Awarded recognition in the BEBRAS Challenge 2021 & 2022 (Enforcer Category) by BEBRAS Indonesia, a prestigious nationwide competition focusing on logic and computational thinking skills.',
@@ -54,7 +57,7 @@ const educationData = [
 
 const EducationCard = ({
   period, flagSrc, flagAlt, flagDelay,
-  institution, degree, classNote,
+  institution, degree, classNote, isOngoing,
   courseworkLabel, coursework, description, accent, blobColor,
   side, // 'left' | 'right'
 }) => {
@@ -62,7 +65,9 @@ const EducationCard = ({
 
   return (
     <div
-      className={`edu-glass-card p-5 sm:p-7 w-full ${side === 'left' ? 'edu-card-left' : 'edu-card-right'}`}
+      className={`edu-glass-card p-5 sm:p-7 w-full ${side === 'left' ? 'edu-card-left' : 'edu-card-right'} ${
+        isOngoing ? 'border-2 border-orange-400/60 shadow-orange-500/10' : ''
+      }`}
       onMouseEnter={() => setHovered(true)}
       onMouseLeave={() => setHovered(false)}
     >
@@ -102,20 +107,31 @@ const EducationCard = ({
       />
 
       <div style={{ position: 'relative', zIndex: 1 }}>
-        {/* Date pill */}
-        <span style={{
-          display: 'inline-block',
-          padding: '0.2rem 0.85rem',
-          background: 'rgba(255,255,255,0.7)',
-          border: '1px solid rgba(255,255,255,0.5)',
-          borderRadius: '9999px',
-          fontSize: '0.72rem',
-          fontWeight: 700,
-          color: accent,
-          marginBottom: '0.85rem',
-          boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
-          fontFamily: 'Inter, sans-serif',
-        }}>{period}</span>
+        {/* Date pill with optional Ongoing status */}
+        <div className="flex flex-wrap items-center gap-2 mb-3">
+          <span style={{
+            display: 'inline-flex',
+            alignItems: 'center',
+            gap: '0.4rem',
+            padding: '0.2rem 0.85rem',
+            background: 'rgba(255,255,255,0.7)',
+            border: '1px solid rgba(255,255,255,0.5)',
+            borderRadius: '9999px',
+            fontSize: '0.72rem',
+            fontWeight: 700,
+            color: accent,
+            boxShadow: '0 1px 4px rgba(0,0,0,0.06)',
+            fontFamily: 'Inter, sans-serif',
+          }}>
+            {period}
+          </span>
+          {isOngoing && (
+            <span className="inline-flex items-center gap-1.5 px-2.5 py-0.5 rounded-full bg-emerald-50 text-emerald-700 border border-emerald-200 text-[10px] font-bold uppercase tracking-wide">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+              Current Degree
+            </span>
+          )}
+        </div>
 
         {/* Institution */}
         <h3 style={{
@@ -193,14 +209,15 @@ const Education = () => {
       { threshold: 0.2 }
     );
 
-    itemRefs.current.forEach((ref) => {
+    const currentRefs = itemRefs.current;
+    currentRefs.forEach((ref) => {
       if (ref) {
         observer.observe(ref);
       }
     });
 
     return () => {
-      itemRefs.current.forEach((ref) => {
+      currentRefs.forEach((ref) => {
         if (ref) {
           observer.unobserve(ref);
         }
@@ -224,13 +241,13 @@ const Education = () => {
         <div
           className="absolute top-0 bottom-0 w-[2px] left-[15px] md:left-1/2 md:-translate-x-1/2 z-0"
           style={{
-            background: 'linear-gradient(to bottom, #003B71 0%, #F5821F 50%, #CC0000 100%)',
+            background: 'linear-gradient(to bottom, #F5821F 0%, #003B71 50%, #CC0000 100%)',
             opacity: 0.25,
           }}
         />
 
         {educationData.map((item, idx) => {
-          const isLeft = idx % 2 === 0; // UM=left, BINUS=right, PENABUR=left on desktop
+          const isLeft = idx % 2 === 0; // BINUS=left (top), UM=right, PENABUR=left on desktop
           const isCardVisible = visibleCards[idx];
 
           return (

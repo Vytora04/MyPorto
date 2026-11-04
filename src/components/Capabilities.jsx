@@ -230,6 +230,8 @@ const Capabilities = () => {
               <div className="flex flex-wrap gap-2">
                 <SkillTag category="frameworks" icon="ph-fill ph-fire" colorClass="text-orange-500" label="PyTorch" />
                 <SkillTag category="frameworks" icon="ph-fill ph-brain" colorClass="text-purple-500" label="Transformers & PEFT (LoRA)" />
+                <SkillTag category="frameworks" icon="ph-fill ph-app-window" colorClass="text-purple-600" label="Microsoft Power Apps" />
+                <SkillTag category="frameworks" icon="ph-fill ph-arrows-clockwise" colorClass="text-blue-500" label="Power Automate" />
                 <SkillTag category="frameworks" icon="ph-fill ph-atom" colorClass="text-cyan-500" label="React" />
                 <SkillTag category="frameworks" icon="ph-fill ph-wind" colorClass="text-teal-500" label="Tailwind CSS" />
                 <SkillTag category="frameworks" icon="ph-fill ph-lightning" colorClass="text-emerald-500" label="FastAPI" />
