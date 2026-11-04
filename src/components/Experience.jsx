@@ -1,8 +1,19 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import Carousel from './Carousel';
 
 const Experience = () => {
   const [showArchives, setShowArchives] = useState(false);
+  const [previewImage, setPreviewImage] = useState(null);
+
+  useEffect(() => {
+    if (!previewImage) return;
+    const handleKeyDown = (e) => {
+      if (e.key === 'Escape') setPreviewImage(null);
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [previewImage]);
 
   return (
     <section className="pt-8 pb-section-gap px-container-padding scroll-mt-24" id="featured-experience">
@@ -10,6 +21,108 @@ const Experience = () => {
         <h2 className="font-black leading-none text-center uppercase tracking-tighter fade-up title-hover-effect cursor-default text-[clamp(2rem,6vw,5.5rem)]">FEATURED EXPERIENCE</h2>
       </div>
       <div className="max-w-screen-xl mx-auto flex flex-col items-center">
+        {/* Highlighted Corporate Experience: Bumi Resources */}
+        <div className="w-full bg-surface-container-lowest border-2 border-academic-sage/60 rounded-[1.25rem] overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 reveal reveal-up p-6 sm:p-8 mb-16 md:mb-20 flex flex-col lg:flex-row gap-6 md:gap-8 items-start justify-between">
+          {/* Left: Framed Photo Preview */}
+          <div
+            className="w-full sm:w-48 lg:w-56 aspect-[4/3] sm:aspect-square rounded-xl overflow-hidden border border-outline-variant/60 flex-shrink-0 relative group/internimg cursor-zoom-in self-center lg:self-start"
+            onClick={() => setPreviewImage({ src: '/images/introduction2.jpeg', title: 'PT Bumi Resources Tbk. — Application System Developer Intern' })}
+            title="Click to view full photo"
+          >
+            <img
+              src="/images/introduction2.jpeg"
+              alt="Bumi Resources Reception"
+              className="w-full h-full object-cover group-hover/internimg:scale-105 transition-transform duration-500"
+              loading="lazy"
+              decoding="async"
+            />
+            <div className="absolute top-2.5 right-2.5 w-7 h-7 rounded-full bg-black/50 backdrop-blur-sm border border-white/20 text-white flex items-center justify-center opacity-0 group-hover/internimg:opacity-100 transition-opacity duration-300">
+              <span className="material-symbols-outlined text-[15px]">open_in_full</span>
+            </div>
+            <div className="absolute bottom-2 left-2 right-2 px-2 py-1 rounded bg-black/60 backdrop-blur-sm text-[10px] font-semibold text-white/90 text-center truncate">
+              Bakrie Tower, Rasuna Epicentrum
+            </div>
+          </div>
+
+          {/* Middle: Professional Details */}
+          <div className="flex-1">
+            <div className="flex flex-wrap items-center gap-2 mb-3">
+              <span className="px-3 py-1 bg-academic-sage text-white text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1.5 shadow-sm">
+                <span className="material-symbols-outlined text-[14px]">work</span> Professional Experience
+              </span>
+              <span className="px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-bold uppercase tracking-wider rounded-full flex items-center gap-1.5">
+                <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse"></span> Active Role
+              </span>
+              <span className="text-xs font-semibold text-on-surface-variant uppercase tracking-wider ml-auto">
+                August 2026 – Present
+              </span>
+            </div>
+
+            <div className="mb-4">
+              <h3 className="font-serif text-2xl md:text-3xl font-black text-ghibli-dark tracking-tight leading-tight">
+                PT Bumi Resources Tbk.
+              </h3>
+              <p className="text-base md:text-lg font-bold text-academic-sage tracking-tight mt-0.5">
+                Application System Developer Intern
+              </p>
+            </div>
+
+            <ul className="list-disc pl-5 text-sm md:text-base leading-relaxed text-on-surface-variant space-y-2 max-w-2xl">
+              <li>
+                Engineered enterprise workflows and business apps using <strong className="text-primary font-semibold">Microsoft Power Apps</strong> and <strong className="text-primary font-semibold">Power Automate</strong>.
+              </li>
+              <li>
+                Architected and deployed a <strong className="text-primary font-semibold">RAG-based IT Operations Assistant</strong> to accelerate knowledge retrieval and resolve technical support queries.
+              </li>
+              <li>
+                Integrated LLM capabilities and evaluated automation pipelines to streamline internal operational bottlenecks.
+              </li>
+            </ul>
+          </div>
+
+          {/* Right: Core Tech & Details */}
+          <div className="w-full lg:w-[270px] flex flex-col gap-5 border-t lg:border-t-0 lg:border-l border-outline-variant pt-6 lg:pt-0 lg:pl-8 flex-shrink-0">
+            <div>
+              <span className="text-xs font-bold text-on-surface-variant/80 uppercase tracking-wider block mb-2.5">Core Tech & Scope</span>
+              <div className="flex flex-wrap gap-2">
+                <span className="px-3 py-1 bg-purple-50 text-purple-700 border border-purple-200 text-xs font-semibold uppercase rounded-full">RAG / LLMs</span>
+                <span className="px-3 py-1 bg-blue-50 text-blue-700 border border-blue-200 text-xs font-semibold uppercase rounded-full">Power Apps</span>
+                <span className="px-3 py-1 bg-emerald-50 text-emerald-700 border border-emerald-200 text-xs font-semibold uppercase rounded-full">Power Automate</span>
+                <span className="px-3 py-1 bg-orange-50 text-orange-700 border border-orange-200 text-xs font-semibold uppercase rounded-full">System Integration</span>
+                <span className="px-3 py-1 bg-slate-100 text-slate-700 border border-slate-200 text-xs font-semibold uppercase rounded-full">Enterprise IT</span>
+              </div>
+            </div>
+
+            <div className="pt-4 border-t border-outline-variant/60 flex flex-col gap-4">
+              <div>
+                <span className="text-xs font-bold text-on-surface-variant/80 uppercase tracking-wider block mb-1">Location</span>
+                <p className="text-sm font-semibold text-primary flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[18px] text-academic-sage">location_on</span>
+                  Setiabudi, South Jakarta
+                </p>
+              </div>
+              <div>
+                <span className="text-xs font-bold text-on-surface-variant/80 uppercase tracking-wider block mb-1">Industry</span>
+                <p className="text-sm font-semibold text-primary flex items-center gap-1.5">
+                  <span className="material-symbols-outlined text-[18px] text-academic-sage">corporate_fare</span>
+                  Natural Resources & Energy
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Section Divider: Organizational & Campus Leadership */}
+        <div className="w-full mb-12 md:mb-16 border-b border-outline-variant pb-4 flex flex-col sm:flex-row sm:items-end justify-between gap-2 reveal reveal-up">
+          <div>
+            <span className="font-label-caps text-xs text-on-surface-variant uppercase tracking-wider block mb-1">Extracurricular Leadership</span>
+            <h3 className="font-serif text-2xl md:text-3xl font-bold text-primary tracking-tight">Organizational & Campus Experience</h3>
+          </div>
+          <span className="px-3 py-1 bg-surface-container text-xs font-semibold uppercase tracking-wider rounded-full text-on-surface-variant border border-outline-variant/60 w-fit">
+            Academic Community
+          </span>
+        </div>
+
         {/* ICPC Block */}
         <div className="mb-16 md:mb-32 w-full flex flex-col md:flex-row gap-6 md:gap-12 items-start reveal reveal-tilt-up">
           {/* Left: Carousel */}
@@ -206,6 +319,37 @@ const Experience = () => {
           )}
         </div>
       </div>
+
+      {/* Full-Screen Lightbox Modal for Photo Preview */}
+      {previewImage &&
+        createPortal(
+          <div
+            className="fixed inset-0 z-[999] bg-black/85 backdrop-blur-md flex items-center justify-center p-4 md:p-8 select-none"
+            onClick={() => setPreviewImage(null)}
+          >
+            <div className="absolute top-5 left-6 right-6 flex items-center justify-between z-20 pointer-events-none">
+              <span className="px-3.5 py-1.5 rounded-full bg-white/10 border border-white/20 text-white text-xs font-bold tracking-wider uppercase truncate max-w-[75vw]">
+                {previewImage.title}
+              </span>
+              <button
+                type="button"
+                aria-label="Close preview"
+                onClick={() => setPreviewImage(null)}
+                className="w-10 h-10 rounded-full bg-white/10 hover:bg-white/25 border border-white/20 text-white flex items-center justify-center transition-colors pointer-events-auto"
+              >
+                <span className="material-symbols-outlined text-xl">close</span>
+              </button>
+            </div>
+
+            <img
+              src={previewImage.src}
+              alt={previewImage.title}
+              onClick={(e) => e.stopPropagation()}
+              className="max-h-[85vh] max-w-[90vw] object-contain rounded-xl shadow-2xl border border-white/15 transition-all duration-300"
+            />
+          </div>,
+          document.body
+        )}
     </section>
   );
 };
