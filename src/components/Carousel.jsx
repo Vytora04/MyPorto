@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from 'react';
 import { createPortal } from 'react-dom';
 
-const Carousel = ({ images, dots = true, autoPlay = false }) => {
+const Carousel = ({ images, dots = true, autoPlay = false, aspect = 'aspect-[4/3]', className = '' }) => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [lightboxOpen, setLightboxOpen] = useState(false);
   const timerRef = useRef(null);
@@ -55,7 +55,7 @@ const Carousel = ({ images, dots = true, autoPlay = false }) => {
 
   return (
     <>
-      <div className="relative w-full aspect-[4/3] bg-surface-container overflow-hidden mb-6 md:mb-8 group/carousel rounded-lg md:rounded-none">
+      <div className={`relative w-full ${aspect} bg-surface-container overflow-hidden group/carousel rounded-lg md:rounded-none ${className}`}>
         <div
           className="flex transition-transform duration-700 ease-in-out h-full cursor-zoom-in"
           style={{ transform: `translateX(${offset}%)` }}
